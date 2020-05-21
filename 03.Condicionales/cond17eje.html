@@ -1,0 +1,44 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    
+        <script>
+   let nombre=window.prompt('que hiciste hoy')
+   let largoPalabra=(nombre.length);
+   console.log(largoPalabra);
+    let mitadfraseuser=(largoPalabra/2)-1;
+    console.log(mitadfraseuser)
+    let mitadfraseuserpar=mitadfraseuser+2;
+    console.log(mitadfraseuserpar)
+    let mitadfraseuserimpar=mitadfraseuser+1;
+    console.log(mitadfraseuserimpar)
+    let restopar=(parseInt(largoPalabra)%2);
+    console.log(restopar);
+    let frasepar=nombre.substring(parseInt(mitadfraseuser),parseInt(mitadfraseuserpar));
+    console.log(frasepar);
+    let fraseimpar=nombre.substring(mitadfraseuser,mitadfraseuserimpar)
+    console.log(fraseimpar);
+
+if(restopar===0){
+    console.log('los caracteres centrales son ' + frasepar);
+    window.alert('los caracteres centrales son ' + frasepar);
+
+}
+else{
+    console.log('el caracter central es ' + fraseimpar);
+    window.alert('el caracter central es ' + fraseimpar);
+
+}
+// let nombre2=nombre.substring(palabramay);
+// let nombre1=nombre.substring(0,palabramay);
+// console.log( nombre1.toLowerCase()+ nombre2.toUpperCase());
+
+    
+         </script>
+        </body>
+        </html>

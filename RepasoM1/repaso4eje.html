@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+p{
+
+    font-size: 50px;
+    color: blueviolet;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <div id='numero'></div>
+    <script>
+// Escribe un programa que te pregunte la nota que has sacado como un número entre el 0 y el 10. Dependiendo de la nota mostraremos su resultado en el navegador:
+// 10 es matrícula
+// 9 y hasta 10 es sobresaliente
+// 7 y hasta 9 es notable
+// 6 y hasta 7 es bien
+// 5 y hasta 6 es suficiente
+// 0 hasta 5 es suspenso
+// 	Hacer el ejercicio en dos programas diferentes, uno utilizando if, otro utilizando switch.
+let nota= parseInt(window.prompt('ingrese una nota '))
+
+
+// if (nota<=10) {
+
+//     document.getElementById('numero').innerHTML += `<p> tu nota es${nota} 10 = es matrícula </p>`;
+    
+
+    
+// }
+// else if (nota>=9&&nota<10) {
+
+    
+//     document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}: 9 y hasta 10 es sobresalient </p>`;
+    
+// }
+
+// else if (nota>=7&&nota<9) {
+
+    
+// document.getElementById('numero').innerHTML += `<p> tu ${nota} es:  7 y hasta 9 es notable </p>`;
+
+// }
+// else if (nota>=6&&nota<7) {
+
+    
+// document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}:  6 y hasta 7 es bien </p>`;
+
+// }
+
+// else if (nota>=5&&nota<6) {
+
+    
+// document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}: 5 y hasta 6 es suficiente</p>`;
+
+// }
+// else if (nota<5) {
+
+    
+// document.getElementById('numero').innerHTML += `<p> ${nota} 0 hasta 5 es suspenso </p>`;
+
+// }
+
+switch (nota) {
+    case (10):
+    document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}: 9 y hasta 10 es sobresalient </p>`;
+        break;
+
+        case 9:
+
+        document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}: 9 y hasta 10 es sobresalient </p>`;
+        
+        break;
+
+        case (7):
+        case (8):
+    
+    
+    
+document.getElementById('numero').innerHTML += `<p> tu ${nota} es:  7 y hasta 9 es notable </p>`;
+
+
+        break;
+
+        case (6):
+
+        document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}:  6 y hasta 7 es bien </p>`;
+
+
+        case (5):
+        document.getElementById('numero').innerHTML += `<p> tu nota es ${nota}: 5 y hasta 6 es suficiente</p>`;
+
+        break;
+        case (nota<5):
+               
+document.getElementById('numero').innerHTML += `<p> ${nota} 0 hasta 5 es suspenso </p>`;
+        
+    default:
+    document.getElementById('numero').innerHTML += `<p> ${nota} no existe</p>`;
+        break;
+}
+
+
+    </script>
+</body>
+</html>

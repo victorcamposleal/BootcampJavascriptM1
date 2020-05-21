@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Tronos</title>
+</head>
+
+
+<body>
+
+    ///////
+
+
+    <button onclick="saludar()">Saludar</button>
+    <button onclick="despedirse()">Despedirse</button>
+    <script>
+        'use strict'
+        
+        // function muerenDosPersonajes() {
+        //     let numeroDePersonajes = 2;
+        //     console.log(`Mueren ${numeroDePersonajes} personajes`);
+        // }
+
+        // function muerenTresPersonajes() {
+        //     let numeroDePersonajes = 3;
+        //     console.log(`Mueren ${numeroDePersonajes} personajes`);
+        // }
+
+        function muerenPersonajes(numeroDePersonajes) {
+            // let numeroDePersonajes = (el número entre paréntesis al llamar la función)
+            console.log(`Mueren ${numeroDePersonajes} personajes`);
+        }
+
+        daenerysLlamaASusDragones();
+        muerenPersonajes(2); // let numeroDePersonajes = 2;
+        console.log('Jon Snow pone cara triste');
+        muerenPersonajes(3); // let numeroDePersonajes = 3;
+        daenerysLlamaASusDragones();
+        muerenPersonajes(2);
+        console.log('Fin del capítulo');
+        
+        function daenerysLlamaASusDragones() {
+            for(let i = 0; i <5; i++) {
+                console.log('¡Mis dragones!');
+            }
+        }
+
+
+
+
+          // una función a la que le paso un número, y me muestra ese número en consola
+          function mostrarNumero(numero1, numero2) {
+            let suma = numero1 + numero2;
+            return suma;
+        }
+
+        let a = 8;
+        let b = 5;
+        let c = mostrarNumero(8, 5);
+
+
+        ///////
+
+
+    <button onclick="saludar()">Saludar</button>
+    <button onclick="despedirse()">Despedirse</button>
+  
+        function saludar() {
+            console.log('hola');
+        }
+
+        function despedirse() {
+            console.log('adios');
+        }
+
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+ y>
+    <button onclick="saludar()">Saludar</button>
+    <button onclick="despedirse()">Despedirse</button>
+    <script>
+        function saludar() {
+            console.log('hola');
+        }
+
+        function despedirse() {
+            console.log('adios');
+        }
+    </script>       
+ ////////////////////////////////////////////////////////////////////////////////////////////////777
+/// 21 de mayo del 2020
+ let resultadoSuma = sumar();
+
+let numero = window.prompt("Escribe un número");
+let parImpar = esPar(numero);
+mostrarParImpar(parImpar);
+
+
+function mostrarParImpar(valor) {
+    if (valor === true) {
+        console.log("El número introducido es par");
+    } else {
+        console.log("El número introducido es impar");
+    };
+}
+
+function esPar(numero) {
+    if (numero % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function sumar() {
+    console.log("Has elegido sumar");
+    let resultado = 2 + 2;
+    return resultado;
+}
+
+
+
+
+
+
+<script>
+</body>
+</html>

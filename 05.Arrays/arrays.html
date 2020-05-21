@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperaturas</title>
+</head>
+<body>
+    <script>
+        // aquí vamos a guardar las temperaturas
+        let temperaturas = [];
+        
+        // preguntar temperaturas hasta introducir un número negativo
+        let temperatura;
+        do {
+            // pedimos una temperatura al usuario
+            //      parse Int : parsear un número entero
+            //      parse Float : parsear un número con decimales
+            temperatura = parseFloat(window.prompt('Introduce una temperatura'));
+
+            // comprobamos que la temperatura sea positiva antes de añadirla
+            if(temperatura > 0) {
+                temperaturas.push(temperatura);
+                // podíamos haber introducido la temperatura en la última posición con
+                // temperaturas[temperaturas.length] = temperatura;
+            }
+        } while(temperatura > 0);
+
+        // buscar la maxima y la mínima
+        // para recorrer los arrays, ya que siempre sabemos su longitud, es un número
+        // determinado de repeticiones, por lo tanto usaremos un for
+            // en caso de querer ir desde el final hasta el principio usaríamos:
+            //for(let i = temperaturas.length - 1; i >= 0; i = i - 1) {
+
+        // buscar la temperatura máxima
+        let max = temperaturas[0]; // guardo el primer valor como máximo
+        let min = temperaturas[0]; 
+        for(let i = 0; i < temperaturas.length; i++) { // recorremos todos
+            if(temperaturas[i] > max) { // si alguno es mayor que el guardado como máximo
+                max = temperaturas[i]; // reemplazamos el máximo por el valor encontrado
+            }
+            
+            if(temperaturas[i] < min) {
+                min = temperaturas[i];
+            }
+        }
+        console.log(max);
+        console.log(min);
+
+    </script>
+</body>
+</html>

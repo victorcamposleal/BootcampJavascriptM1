@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+
+<body>
+    <h1>numeros invertidos</h1>
+    <div id="numero"></div>
+    <script>
+        let numero;
+        let numeroDos = '';
+         do {
+             numero = window.prompt('dime un numero');
+              for (let i = numero.length; i > 0; i = i - 1) {
+            numeroDos = numeroDos + numero.substring(i - 1, i);
+            
+              }
+              document.getElementById('numero').innerHTML += `<p> ${numeroDos} </p>`;
+              numeroDos='';
+        } while (numero !== '0')
+
+    </script>
+</body>
+
+</html>

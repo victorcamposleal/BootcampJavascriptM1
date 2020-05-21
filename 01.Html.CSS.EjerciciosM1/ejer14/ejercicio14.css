@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: green;
+    padding-top: 10px;
+    padding-right: 36px;
+    padding-bottom: 10px;
+    padding-left: 36px;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+}
+
+a {
+    background-color: white;
+    color: green;
+    border: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 10px;
+
+}

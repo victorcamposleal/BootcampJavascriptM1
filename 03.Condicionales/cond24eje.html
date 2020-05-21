@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let temperatura=parseFloat(window.prompt('ingrese la temperatura'));
+let opcion=window.prompt('si quiere la tempratura en farehit ingrese F si la temperatura en celsius ingrese C ');
+let farenheit=(((temperatura*9)/5)+ 32);
+let celsius=(((temperatura-32)*5)/9);
+
+if(opcion==='F'){
+
+    console.log('la temperatura en farenheit es= '+ farenheit);
+}
+else if(opcion==='C'){
+
+    
+    console.log('la temperatura en celsius es= '+celsius);
+}
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="resultados"></div>
+    <script>
+
+        //Escribe un programa que pida al usuario la anchura y altura de un rectángulo y que calcule y muestre su área y su perímetro (el área es la altura por la anchura y el perímetro es 2 por la suma de la altura y la anchura). Hacer que se muestre tanto en la consola como en el navegador.
+
+
+        let anchura=parseInt(window.prompt('ingrese la anchura'));
+        let altura=parseInt(window.prompt('ingrese la altura'));
+let respuesta='';
+        
+        let area= anchura*altura;
+        let perimetro= (anchura+altura)*2;
+console.log(area);
+console.log(perimetro);
+
+respuesta= `<p>el preimetro es ${perimetro} y el area es ${area}  </p>`
+
+document.getElementById('resultados').innerHTML +=respuesta;
+
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,47 @@
+k<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero1=window.prompt('ingrese el numero entre 25 y 75');
+        let numero2=window.prompt('ingrese el otro numero entre 25 y 75');
+        let digit1number1=numero1.substring(0,1);
+        console.log(digit1number1);
+        let digit2number1=numero1.substring(1);
+        console.log(digit2number1);
+        let digit1number2=numero2.substring(0,1);
+        console.log(digit1number2);
+        let digit2number2=numero2.substring(1);
+        console.log(digit2number2);
+
+if( digit1number1===digit1number2){
+    window.alert('el primer numero ingresado '+numero1+' tiene en comun un digito con el segundo numero ingresado '+numero2);
+    
+}
+
+else if(digit1number1===digit2number2){
+    window.alert('el primer numero ingresado '+numero1+' tiene en comun un digito con el segundo numero ingresado '+numero2);
+
+}
+if( digit2number1===digit1number2){
+    window.alert('el primer numero ingresado '+numero1+' tiene en comun un digito con el segundo numero ingresado '+numero2);
+}
+
+else if(digit2number1===digit2number2){
+    window.alert('el primer numero ingresado '+numero1+' tiene en comun un digito con el segundo numero ingresado '+numero2);
+
+}
+
+
+else {
+
+
+    window.alert('no tienen ningun numero en comun');
+}
+    </script>
+</body>
+</html>

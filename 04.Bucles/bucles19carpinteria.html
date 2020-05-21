@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./iconos/logo.svg">
+        <h1>Carpintería Mazarredo</h1>
+        <p id="nombreUsuario"></p>
+    </header>
+    <main>
+        <div id="producto">
+
+        </div>
+    </main>
+
+
+    <script>
+        let nombre = window.prompt("¿Cómo te llamas?");
+        document.getElementById("nombreUsuario").innerHTML = `Bienvenid@ ${nombre}`;
+        let producto;
+        do {
+
+
+            producto = (window.prompt("¿Qué producto quieres comprar?")).toLowerCase();
+            let ud = parseInt(window.prompt("¿Cuántas unidades quieres?"));
+
+
+            let precioUnidad;
+            let precioTotal;
+
+            switch (producto) {
+
+                case "brocha": precioUnidad = 5;
+                    precioTotal = precioUnidad * ud;
+
+                    document.getElementById("producto").innerHTML = `
+                <img src="./iconos/brocha.svg" />
+                <h2>Brocha</h2>
+                <p>Nº unidades: ${ud}</p>
+                <p>Precio/unidad: ${precioUnidad} €</p>
+                <p>Precio total: ${precioTotal} €</p>
+                `; break;
+
+                case "llave": precioUnidad = 8;
+                    precioTotal = precioUnidad * ud;
+
+                    document.getElementById("producto").innerHTML = `
+                <img src="./iconos/llave.svg" />
+                <h2>Llave</h2>
+                <p>Nº unidades: ${ud}</p>
+                <p>Precio/unidad: ${precioUnidad} €</p>
+                <p>Precio total: ${precioTotal} €</p>
+                `;
+                    break;
+
+                case "martillo": precioUnidad = 6;
+                    precioTotal = precioUnidad * ud;
+
+                    document.getElementById("producto").innerHTML = `
+                <img src="./iconos/martillo.svg" />
+                <h2>Martillo</h2>
+                <p>Nº unidades: ${ud}</p>
+                <p>Precio/unidad: ${precioUnidad} €</p>
+                <p>Precio total: ${precioTotal} €</p>
+                `;
+                    break;
+
+                case "tronco": precioUnidad = 3;
+                    precioTotal = precioUnidad * ud;
+
+                    document.getElementById("producto").innerHTML = `
+                <img src="./iconos/tronco.svg" />
+                <h2>Tronco</h2>
+                <p>Nº unidades: ${ud}</p>
+                <p>Precio/unidad: ${precioUnidad} €</p>
+                <p>Precio total: ${precioTotal} €</p>
+                `;
+                    break;
+
+                default: document.getElementById("producto").innerHTML = `
+                <h2>No existe el producto solicitado</h2>
+                `;
+                    break;
+            }
+        } while (producto !== "brocha" && producto !== "martillo" && producto !== "llave" && producto !== "tronco");
+
+    </script>
+</body>
+
+</html>

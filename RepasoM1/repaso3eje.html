@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id='temperatura'></div>
+    <script>
+
+
+// //Un programa que te pregunta la temperatura que hace donde estás y te sugiere qué hacer dependiendo de ella. Las recomendaciones son:
+// //Si hace más de 40 grados, vete a otro sitio
+// Entre 30 y 40 grados, enciende el aire acondicionado
+// Entre 30 y 20 grados, no hagas nada
+// Entre 10 y 20 grados, enciende la calefacción
+// Si hace menos de 10 grados, vete a otro sitio
+
+let temperatura=parseInt(window.prompt('que temperatura hace'));
+if (temperatura> 40) {
+
+    document.getElementById('temperatura').innerHTML += `<p> la tempertura es de ${temperatura} grados Si hace más de 40 grados, vete a otro siti </p>`;
+    
+}
+
+
+else if(40>=temperatura && temperatura>30 ){
+
+    
+    document.getElementById('temperatura').innerHTML += `<p> la tempertura es de ${temperatura} grados  Entre 30 y 40 grados, enciende el aire acondicionado  </p>`;
+
+}
+
+else if(30>=temperatura && temperatura>20  ){
+
+    
+    document.getElementById('temperatura').innerHTML += `<p> la tempertura es de ${temperatura} grados Entre 30 y 20 grados, no hagas nada </p>`;
+
+}
+
+else if(20>=temperatura && temperatura>=10  ){
+
+    
+    document.getElementById('temperatura').innerHTML += `<p> la tempertura es de ${temperatura} grados Entre 10 y 20 grados, enciende la calefacció </p>`;
+
+}
+
+else if(temperatura  <10  ){
+
+    
+document.getElementById('temperatura').innerHTML += `<p> la tempertura es de ${temperatura} grados Si hace menos de 10 grados, vete a otro sitio </p>` ;
+
+}
+
+
+
+    </script>
+</body>
+</html>

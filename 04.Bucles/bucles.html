@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+<body>
+    <script>
+
+        //ejemplo while..................................................................................
+        console.log('Antes del bucle');
+        let i = 0;
+        while(i < 3) {
+            console.log(i);
+            i = i + 1;
+        }
+        console.log('Después del bucle');
+
+
+
+        //ejemplo do-while..................................................................................
+
+        let respuesta;
+        do {
+            window.alert('Hola!');
+            respuesta = window.prompt('quieres que te vuelva a saludar?');
+        } while(respuesta.toLowerCase() === 'si');
+//ejemplo for.................................................................................
+// let i = 0; // iniciar la variable a un valor
+
+        // while (i < 3) { // comprobando la condición de si ejecutar el bucle
+            
+        //     console.log(i); // el código que ejecutamos en cada repetición
+
+        //     i = i + 1; //modificando la variable después de ejecutar el código
+        // }
+
+        let numeroDeCervezas = parseInt(window.prompt('Cuantas cervezas quieres'));
+
+        for(let i = 0; i < numeroDeCervezas; i = i+1) {
+            console.log('Toma una cerveza');
+        }
+
+
+ let palabra = window.prompt('Escribe una palabra'); // 'hola'
+
+for(let i = 0; i < palabra.length; i = i+ 1) {
+    console.log(palabra.substring(i, i+1));
+}
+
+
+        // for(let numero = 0; numero <= 20; numero = numero + 1) {
+        for(let numero = 0; numero <= 20; numero += 1) {
+            if(numero %2 === 0) {
+                console.log(numero);
+            }
+        }
+   
+    </script>
+</body>
+</html>

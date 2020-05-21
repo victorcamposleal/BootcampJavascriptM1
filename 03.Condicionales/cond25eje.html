@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        //let farenheit=(((temperatura*9)/5)+ 32);
+let usuario=window.prompt('dame tu nombre');
+let ventas=parseInt(window.prompt('ingrese el numero de ventas que ha hecho'));
+
+let bonus= ((ventas*.05));
+let usuariobonus=(ventas*.05)+ventas;
+
+if(ventas > 500){
+
+console.log(usuario+ '  haz vendido '+ventas+' tienes un bonus del 5% sobre ventas, tu bonus es de '+bonus+ ' tu ganancia total es de '+usuariobonus);
+window.alert(usuario+ ' haz vendido '+ventas+' tienes un bonus del 5% sobre ventas, tu bonus es de '+bonus+ ' tu ganancia total es de '+usuariobonus);
+
+}
+else{
+
+    console.log(usuario+ ' haz vendido '+ventas);
+
+}
+    </script>
+</body>
+</html>

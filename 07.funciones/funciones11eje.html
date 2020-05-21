@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+function conversorEuros (cantidad,moneda) {
+cantidad=parseInt(window.prompt('cantidad que deaseas convertir'));
+moneda=parseInt(window.prompt('tipo de moneda que deseas contvertir'));
+    if (moneda==='dolares') {
+  
+   let resultado=(cantidad*1.28611) 
+  window.alert( `${resultado} dolares`)
+  return resultado
+    }
+    else if (moneda==='yenes') {
+
+        let resultado=(cantidad*129.852 )
+        window.alert( `${resultado} dolares`)
+        return resultado
+}
+
+
+else if (moneda==='libras') {
+let resultado=(cantidad*.86)
+window.alert( `${resultado} dolares`)
+return resultado
+}
+
+    
+}
+
+conversorEuros();
+
+
+//Crea un aplicación que nos convierta una cantidad de euros introducida por teclado a otra moneda, estas pueden ser a dólares, yenes o libras. El método tendrá como parámetros, la cantidad de euros y la moneda a pasar que será una cadena, este no devolverá ningún valor, mostrará un mensaje indicando el cambio.
+//0.86 libras es un 1 €
+//1.28611 $ es un 1 €
+//129.852 yenes es un 1 €
+
+
+
+    </script>
+</body>
+</html>

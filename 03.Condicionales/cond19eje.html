@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+<p id="adjetivo">heladeria castro</p>
+
+    </div>
+    <script>
+
+
+        
+// // // 19. Decir el número de helados que queremos comprar. Cada helado vale 2 euros. Si compramos más de 10 helados, nos regalan uno. Mostrar en pantalla el número de helados que nos dan y cuánto hemos pagado por ellos. (Sólo damos un helado gratuito aunque compren muchos más helados que 10)
+// //         'use strict'
+// // let helado=parseInt(window.prompt('cuantos helados deseas comprar'));
+// // let pago=helado*2;
+// // let heladobonus=helado+1
+// // console.log('haz pagado' + pago)
+
+
+// // if(helado>=10){
+// //     console.log('te regalamos un Helado haz comprado '+helado+' helados y te llevas '+ heladobonus  +' helados tu pago total es de '+pago);
+// //     window.alert('te regalamos un Helado haz comprado '+helado+' helados y te llevas '+ heladobonus  +' helados tu pago total es de '+pago);
+// //     document.getElementById('adjetivo').innerHTML=`<strong> te regalamos un Helado haz comprado ${helado} helados y te llevas  ${heladobonus} </strong>`;
+// //     }
+// //     else
+// //     {console.log('gracias por tu compra haz comprado '+helado+' helados y tu pago total es de '+pago)
+// //     window.alert('gracias por tu compra haz comprado '+helado+' helados y tu pago total es de '+pago)
+// // }
+
+
+/// ternario
+
+let icecream=parseInt(window.prompt('cuanto helados quieres'));
+let price=2
+
+icecream>=10?   document.getElementById('adjetivo').innerHTML= `<strong> te regalamos un Helado haz comprado ${icecream} helados y te llevas  ${icecream+1} pagaras  ${icecream*price} </strong>`: document.getElementById('adjetivo').innerHTML= `<strong>  haz comprado ${icecream} helados  pagaras  ${icecream*price} </strong>`
+  
+  
+  
+    </script>
+</body>
+</html>

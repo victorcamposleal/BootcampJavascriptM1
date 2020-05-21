@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        'use strict'
+let bobbot=window.prompt('dile algo a bob');
+let ultimocaracter=bobbot.length;
+console.log(ultimocaracter)
+let caracter=bobbot.substring(ultimocaracter-1);
+console.log(caracter);
+let caracter2combinado=bobbot.substring(ultimocaracter-2);
+console.log(caracter2combinado);
+
+
+
+
+
+
+ if(caracter2combinado==='!?'|| caracter2combinado==='?!'){
+
+window.alert('“¡Eh, tranquilízate! Yo sé lo que hago.')
+ }
+
+else if(caracter==='!'){
+
+window.alert('“¡Eh!, tranquilízate.” si le gritas')
+
+}
+else if(caracter==='?'){
+
+window.alert('“¡Claro!”  si le haces una pregunta.')
+
+}
+
+ else if(bobbot){
+
+   window.alert('sin mas')
+
+}
+
+else{
+
+    window.alert('Vale con que esas tenemos...”')
+}
+
+
+
+    </script>
+</body>
+</html>

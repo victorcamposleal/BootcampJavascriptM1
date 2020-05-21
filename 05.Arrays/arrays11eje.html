@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let numeros=[];
+let suma=0;
+let multiplicacion=1;
+
+for (let i = 0; i <100; i++) {
+    numeros[i]=Math.floor((Math.random()*100)+1);
+    if (i%2===0) {
+        suma=suma+numeros[i]
+        console.log(` la posicion ${i} su produto es  ${suma} por que se suma con el valor de la poscion par anterioir` )
+    } 
+   if (i%2!==0) {
+multiplicacion=multiplicacion*numeros[i]
+console.log(` la posicion ${i} su produto es   ${multiplicacion} por que se multiplica por el valor de la posicion impar anterioir` )
+   }
+        
+}
+console.log(numeros)
+
+    </script>
+</body>
+</html>

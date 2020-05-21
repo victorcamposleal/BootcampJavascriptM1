@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+// areas()
+// function areas(figura){
+
+// figura=window.prompt("de que figura quieres el area")
+
+// if(figura==='triangulo'){
+// let base= parseInt(window.prompt('dame el valor de la base'));
+// let altura= parseInt(window.prompt('dame el valor de la altura'));
+
+// let areaTriangulo=(base*altura)/2
+// console.log(areaTriangulo);
+
+
+// }
+
+// else if(figura==='cuadrado'){
+// let lado= parseInt(window.prompt('dame el valor del lado'));
+
+// let areaCuadrado=lado*lado;
+// console.log(areaCuadrado);
+
+// }  
+
+// else if(figura==='circulo'){
+// let radio= parseInt(window.prompt('dame el valor de la radio'));
+// let areaCirculo=(radio**2)*(Math.PI);
+// console.log(areaCirculo)
+
+
+// }
+
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+figura=window.prompt("de que figura quieres el area").toLowerCase();
+
+areas()
+function areas(figura){
+
+
+if(figura==='triangulo'){
+triangulo()
+
+
+}
+
+else if(figura==='cuadrado'){
+cuadrado()
+
+}  
+
+else if(figura==='circulo'){
+circulo()
+
+}
+
+}
+
+
+
+
+function circulo() {
+
+let radio= parseInt(window.prompt('dame el valor de la radio'));
+let areaCirculo=(radio**2)*(Math.PI);
+console.log(areaCirculo)
+
+}
+
+
+function triangulo() {
+let base= parseInt(window.prompt('dame el valor de la base'));
+let altura= parseInt(window.prompt('dame el valor de la altura'));
+
+let areaTriangulo=(base*altura)/2
+console.log(areaTriangulo);
+}
+
+
+function cuadrado() {
+
+    let lado= parseInt(window.prompt('dame el valor del lado'));
+
+let areaCuadrado=lado*lado;
+console.log(areaCuadrado);
+    
+}
+
+
+//Crea una aplicación que nos calcule el área de un círculo, cuadrado o triángulo. Pediremos de qué figura queremos calcular su área y según lo introducido pedirá los valores necesarios para calcular el área. Crea un método por cada figura para calcular cada área, este devolverá un número entero(sin decimales). Muestra el resultado por pantalla
+//Circulo: (radio^2)*PI
+//Triángulo: (base * altura) / 2
+//Cuadrado: lado * lado
+
+
+    </script>
+</body>
+</html>

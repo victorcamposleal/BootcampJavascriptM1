@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let edad=parseInt(window.prompt('que edad tienes'));
+let usuario=window.prompt('cual es tu nombre')
+
+if(edad < 18){
+window.alert('lo sentimos no tienes edad sufiente no puedes alquilar el coche')
+
+}
+
+else if(edad >= 18){
+
+let carnet=window.prompt('tienes carnet si O no');
+
+
+if(carnet==='no'){
+
+window.alert('nesecitas un carnet');
+
+}
+else if(carnet==='si'){
+
+    let apellido=(window.prompt('ingresa tu apellido'));
+    let ciudad=(window.prompt('ingrase ciduad de recogida'));
+    let dias=parseInt(window.prompt('numero de dias de renta'));
+    let coste= 25*dias;
+    let semana=dias%7;
+    console.log(semana)
+    let costesemana=150*(parseInt(dias/7));
+    console.log(costesemana);
+    let restosemana=parseInt(semana*25);
+    console.log(restosemana);
+
+    if (dias > 7){
+
+
+window.alert('hola '+ usuario+' '+ apellido+ ' el lugar de recogida sera '+ ciudad+ ' el numero de dias de renta es de '+ dias+ ' el coste total sera de '+( restosemana+ costesemana) )
+    }
+
+    else{
+        window.alert('hola '+ usuario+' '+ apellido+ ' el lugar de recogida sera '+ ciudad+ ' el numero de dias de renta es de '+ dias+ ' el coste total sera de '+ coste )
+    }
+
+}
+}
+
+    </script>
+</body>
+</html>

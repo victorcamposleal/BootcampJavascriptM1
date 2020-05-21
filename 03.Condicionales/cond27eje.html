@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+let año=window.prompt('que año quieres dar')
+let bisiesto=año%4;
+let bisiesto2=año%400;
+let excepcxionbisiento=año%100;
+
+if(excepcxionbisiento!==0 && bisiesto===0) {
+   console.log( año + ' es un año bisiesto');
+}
+else if(bisiesto2===0) {
+console.log( año + 'año es un año bisieto')
+}
+else {
+    console.log( año + ' no es un año es un año bisieto')
+}
+
+
+
+    </script>
+</body>
+</html>

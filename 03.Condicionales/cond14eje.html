@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero1=parseInt(window.prompt('ingrese el numero'));
+        let numero2=parseInt(window.prompt('ingrese el otro numero '));
+let restonumero1=(numero1 % 6);
+console.log(restonumero1)
+let restonumero2=(numero2 % 6);
+console.log(restonumero2)
+
+let numeropequeño=numero1-numero2;
+
+if(numero1===numero2 ){
+    window.alert('los nummeros son igual a = 0 ');
+    
+}
+
+else if(restonumero1===restonumero2){
+if (numero1>numero2) {
+
+    window.alert(' el segundo numero  '  + numero2 + ' es el numero mas pequeño');
+    console.log(restonumero2 + 'es igual que el resto de ' + restonumero1 )
+}
+else{
+    
+    window.alert(' el primer numero '  + numero1 + ' es el numero mas pequeño');
+    console.log(restonumero2 + 'es igual que el resto de ' + restonumero1 )
+}
+}
+
+else if(numero1>numero2){
+ 
+    window.alert(' el segundo numero  '  + numero2 + ' es el numero mas pequeño');
+}
+
+
+else if(numero2>numero1){
+
+
+    window.alert(' el segundo numero  '  + numero2 + ' es el numero mas pequeño');
+    window.alert(' el primer numero '  + numero1 + ' es el numero mas pequeño');
+}
+    </script>
+</body>
+</html>

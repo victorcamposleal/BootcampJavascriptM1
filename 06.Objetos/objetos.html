@@ -1,0 +1,76 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caro {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todo-junto"></div>
+    <div id="concesionario"></div>
+    <script>
+        // un concesionario: 
+        //   una lista de vehiculos, y cada vehiculo tiene
+        //      modelo, marca, puertas, matricula, precio, kilometro cero o segunda mano
+        // let coche = {
+        //     modelo: modelo,
+        //     marca: marca,
+        //     puertas: puertas,
+        //     matricula: matricula,
+        //     precio: precio,
+        //     // kilometroCero: true
+        // };
+        /*
+            ford
+            fiesta 
+            5 puertas
+            3746DEF
+            13000
+            kilometro cero (true o false)
+        */
+        let coches = [];
+
+        for (let i = 0; i < 2; i++) {
+            let coche = {};
+            coche.modelo = window.prompt('Introduce el modelo');
+            // coche.marca = window.prompt('Introduce la marca');
+            // coche.puertas = parseInt(window.prompt('Introduce el número de puertas'));
+            // coche.matricula = window.prompt('Introduce la matrícula');
+            coche.precio = parseInt(window.prompt('Introduce el precio'));
+
+            // let kilometros = parseInt(window.prompt('¿Cuantos kilómetros tiene?'));
+            // if (kilometros === 0) {
+            //     coche.kilometroCero = true;
+            // } else {
+            //     coche.kilometroCero = false;
+            // }
+
+            coches.push(coche);
+        }
+
+        for(let i = 0; i < coches.length; i++) {
+
+            let cadena;
+            if(coches[i].precio > 10000) {
+                cadena = '<h1 class="caro">';
+            } else {
+                cadena = '<h1>';
+            }
+            cadena += `${coches[i].modelo}</h1> <p>Precio: ${coches[i].precio}</p>`;
+            document.getElementById('concesionario').innerHTML += cadena;
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

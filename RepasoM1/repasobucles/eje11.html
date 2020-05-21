@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='nomultiplos5'>
+        <ul></ul>
+</div>
+
+<script>
+
+for (let i = 0; i <=100; i=i+1) {
+if (i%5!==0) {
+console.log(i)    
+document.getElementById('nomultiplos5').innerHTML+=`  <ul> <li>${i}</li></ul>`
+}
+    
+    
+}
+
+</script>
+</body>
+</html>

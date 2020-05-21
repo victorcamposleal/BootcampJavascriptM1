@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let tiemposec=parseInt(window.prompt('ingrese el tiempo en segundo que tardo en recorrer la distancia'));
+let tiempomin=(tiemposec/60);
+let tiempohora=(tiempomin/60);
+let hora= tiemposec/3600;
+let horarest=tiemposec%3600;
+console.log(horarest);
+let minutos= horarest/60;
+let segundos=(minutos*60) %60;
+console.log(segundos);
+console.log('el tiempo que tardo es '+ parseInt(hora)+' horas '+ parseInt(minutos)+' minutos '+ parseInt(segundos)+' segundos' );
+
+
+
+    </script>
+</body>
+</html>

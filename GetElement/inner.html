@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos</title>
+</head>
+
+<body>
+    <div>
+        <h1>El título</h1>
+        <p>Primer párrafo</p>
+        <h1>Otro título</h1>
+        <p id="ultimo-parrafo" class="importante spoiler">
+            Segundo párrafo
+        </p>
+        <img src="..." alt="El texto alterno" />
+        <input type="text" id="caja-texto" placeholder="Escribe un nombre" />
+
+        <button onclick="window.alert('hola')">
+            Click aquí
+        </button>
+    </div>
+
+    <script>
+            let nombre = document.getElementById('caja-texto').value;
+                /*
+                let principal = {
+                    tipo: 'html',
+                    lang: 'en',
+                    hijos: [
+                        {
+                            tipo: 'head',
+                            hijos: [
+                                {},
+                                {},
+                                {}
+                            ]
+                        },
+                        {
+                            tipo: 'body',
+                            hijos: [
+                                {
+                                    tipo: 'div',
+                                    hijos: [
+                                        {
+                                            tipo: 'h1',
+                                            texto: 'El título'
+                                        },
+                                        {
+                                            tipo: 'p',
+                                            texto: 'Primer párrafo'
+                                        },
+                                        {
+                                            tipo: 'p',
+                                            texto: 'Segundo párrafo',
+                                            id: 'ultimo-parrafo',
+                                            nombreDeClass: 'importante spoiler',
+                                            listaDeClass: ['importante', 'spoiler']
+                                        },
+                                        {
+                                            tipo: 'img',
+                                            src: '...',
+                                            alt: 'texto alterno',
+                                            style: {
+                                                color: 'red',
+                                                backgroundColor: 'white',
+                                                width: '200px',
+                                                ...
+                                            }
+        
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                };
+                */
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio10</title>
+    <style>
+
+.resultados p{
+
+    padding: 10px;
+    border: solid black;
+    flex-direction: column;
+justify-content: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+padding: 10px;
+border: solid black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+padding: 10px;
+border: solid black;
+}
+
+    </style>
+</head>
+<div class="resultados">
+    <p id='pares'></p>
+    <p id='impares'></p>
+</div>
+<p></p>
+
+<body>
+    
+    <script>
+
+        for (let i = 0;i <=100;i++) {
+    if(i%5!==0){
+
+            console.log(`el numero ${i} no es multiplo de 5 `);
+            document.getElementById('pares').innerHTML+=`<p>el numero ${i} no es multiplo de 5</p> `
+
+        }
+    }
+
+
+
+    
+    </script>
+</body>
+</html>

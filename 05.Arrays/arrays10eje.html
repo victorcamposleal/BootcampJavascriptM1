@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eje10</title>
+    <style>
+ .orden{
+
+   
+border: black ;
+border-style: dotted;
+ }
+ .orden p{
+     display: flex;
+     flex-direction: column;
+     border:firebrick;
+     border-style: double;
+     padding: 10 px;
+ }
+
+    </style>
+</head>
+<body>
+
+    <div class='orden'>
+        <p id='order'></p>
+    </div>
+    <p></p>
+    <script>
+let posicion;
+
+let valores=[0,0,0,0,0,0,0,0,0,0,0]
+
+
+
+do {
+posicion=parseInt(window.prompt('dame un valor entre 0 y 9'));
+if (posicion >=0&& posicion<=10) {
+
+valores[posicion]=((valores[posicion])+1);
+
+}
+
+
+if (posicion >10) {
+
+window.alert('no se admiten numeros mas altos')
+
+}
+}while(posicion>0) 
+
+for (let i = 0; i< valores.length; i=i+1) {
+    
+    document.getElementById('order').innerHTML+=`<p> la posicion  ${i} es el valor ${valores[i]}</p>`
+}
+
+    </script>
+</body>
+</html>

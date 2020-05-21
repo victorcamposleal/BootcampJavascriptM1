@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Crear un array de 10 valores. Pon el valor 1 en cada una de la posiciones. Pedir al usuario que introduzca un número entre 0 y 9. Cada vez que introduzca un valor entre 0 y 9, mostrar el valor de esa posición del array, y modificarlo multiplicando por 2.
+let posicion;
+
+        let valores=[1,1,1,1,1,1,1,1,1,1]
+        let acumulados;
+        []
+
+do {
+posicion=parseInt(window.prompt('dame un valor entre 0 y 9'));
+if (posicion >=0&& posicion<=9) {
+
+    valores[posicion]=((valores[posicion])*2);
+    
+}
+}while(posicion  < 9) 
+
+console.log(valores);
+   </script>
+ </body>
+</html>

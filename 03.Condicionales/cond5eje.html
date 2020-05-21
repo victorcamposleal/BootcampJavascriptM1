@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1></h1>
+
+    <div id="root"></div>
+    <script>
+
+//   let edad=parseInt(window.prompt('que edad tiene su hijo mayor'));
+//   let diferenciadeedad=parseInt(window.prompt('cual es la diferencia de edad entre el hijo mayor y menor'));
+// let diferenciaedades=edad-diferenciadeedad;
+
+// if(diferenciaedades >= 18){ 
+//     window.alert('su hijo menor es mayor de edad');
+// }
+// else{
+//     window.alert('su hijo menor no es mayor de dead');
+// }
+
+
+//
+
+let edadMayor=parseInt(window.prompt('cuantos años tiene tu hijo mayor'));
+let diferencia=parseInt(window.prompt('cuantoa años de diferencia tienen'));
+let principal=document.getElementById('root');
+(edadMayor-diferencia) >= 18?   principal.innerHTML=`<h1>es mayor de edad</h1>`:  principal.innerHTML=`<h1>es menor de edad</h1>`
+
+    </script>
+
+</body>
+</html>

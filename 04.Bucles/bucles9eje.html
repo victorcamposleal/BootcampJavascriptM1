@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eje9bucle</title>
+</head>
+<body>
+    <script>
+
+// Escribe un programa que muestre todos los valores pares o impares entre 1 y 100 dependiendo de si el usuario introduce P o I . Si introduce otra cosa, decir que ese valor no es correcto y pedirle otra vez. 
+
+let tipo=window.prompt('introduce si quieres numeros pares=p o impares=i')
+let vuelta=0;
+
+do{
+if(tipo==='p'){
+    for (let i = 0; i <=100; i=1+i) {
+        if(i%2===0){
+
+            console.log(i);
+
+        }
+    }
+
+}
+
+else if(tipo==='i'){
+    for (let i = 0; i <=100; i=1+i) {
+        if(i%2!==0){
+
+            console.log(i);
+
+        }
+    }
+}
+    window.alert('ese valor no es correct');
+    tipo=window.prompt('introduce si quieres numeros pares=p o impares=i');
+}
+    while( tipo!=='i'|| tipo!=='p');
+   
+   
+ </script>
+</body>
+</html>

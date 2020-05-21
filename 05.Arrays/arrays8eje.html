@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+
+        let edad=[];
+        let acumulador=0;
+
+        for (let i = 0;i <20; i++) {
+           
+
+           edad[i]=(Math.floor(Math.random()*17))+18
+            
+        }
+
+        console.log(edad)
+
+        for (let i = 0; i <20; i++) {
+            acumulador=acumulador+edad[i]
+            
+        }
+
+        media=acumulador/20;
+        console.log(media)
+    </script>
+</body>
+</html>

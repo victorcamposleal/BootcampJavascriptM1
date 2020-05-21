@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+let numero1=parseInt(window.prompt('ingrese un numero'));
+let numero2=parseInt(window.prompt('ingrese otro numero'));
+let numero3=parseInt(window.prompt('ingrese otro numero'));
+let chance1=numero1-numero2;
+let chance2=numero1-numero3;
+let chance3=numero2-numero1;
+let chance4=numero2-numero3;
+let chance5=numero3-numero1;
+let chance6=numero3-numero2;
+
+
+if(chance1===20){
+    console.log("el segundo numero es 20 menos que el primero");
+    window.alert('el segundo numero es 20 menos que el primero');
+}
+    else if (chance2===20){
+    console.log('el tercer numero es 20 menos que el primero');
+    window.alert('el tercer numero es 20 menos que el primero');
+    }
+    else if (chance3===20){
+    console.log('el primer numero es 20 menos que el segundo');
+    window.alert('el primer numero es 20 menos que el segundo');
+    }
+    else if (chance4===20){
+    console.log('el tercer numero es 20 menos que el segundo');
+    window.alert('el tercer numero es 20 menos que el segundo');
+    }
+    else if (chance5===20){
+    console.log('el primer numero es 20 menos que el tercero');
+    window.alert('el primer numero es 20 menos que el tercero');
+    }
+    else if (chance6===20){
+    console.log('el segundo numero es 20 menos que el tercero');
+    window.alert('el segundo numero es 20 menos que el tercero');
+    }
+else{
+    
+    console.log('no hay ningun numero que sea 20 menos que el otra');
+    window.alert('no hay ningun numero que sea 20 menos que el otra');
+}
+
+
+
+</script>
+
+</body>
+</html>

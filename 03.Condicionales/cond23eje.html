@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //let edad2=parseInt(window.prompt('cauntos años tienes'));
+//let mensaje2= edad2>= 18? 'eres mayor de edad':'eres menor de edad
+let nota1=parseInt(window.prompt('ingrese la nota 1'));
+let nota2=parseInt(window.prompt('ingrese la nota 2'));
+let nota3=parseInt(window.prompt('ingrese la nota 3'));
+
+
+let notafinal=nota1>nota2?nota1+nota3:nota2+nota3;
+
+// let mejornota
+// if(nota2<nota1){
+
+// //window.alert(' el numero menor es el ' );
+// mejornota=nota1;
+// console.log(mejornota)
+// }
+
+// else if(nota1 <nota2 ){
+
+// //window.alert(' el numero menor es el ')
+// mejornota=nota2;
+// console.log(mejornota)
+// }
+
+// let finalgrade=(mejornota +nota3)
+
+switch(notafinal)
+{
+case 10:
+console.log('matricula');
+window.alert('matricula '+ notafinal);
+console.log(notafinal)
+break;
+case 9:
+console.log(' sobresaliete');
+window.alert('sobresaliente '+ notafinal);
+console.log(notafinal)
+break;
+case 7:
+case 8:
+console.log('notable');
+window.alert('notable '+ notafinal);
+console.log(notafinal)
+break;
+case 6:
+case 5:
+console.log('suficiente');
+window.alert('suficiente '+ notafinal);
+console.log(notafinal)
+break;
+
+default:
+console.log('suspenso');
+window.alert('suspenso '+ notafinal);
+console.log(notafinal)
+break;
+}
+</script>
+</body>
+</html>

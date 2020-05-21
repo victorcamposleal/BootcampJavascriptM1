@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+<style>
+    .resultados {
+        display: flex;
+        
+        flex-direction: row;
+        justify-content: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding: 10px;
+    }
+    
+    .resultados p{
+        
+        padding: 10px;
+        border: solid black;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="resultados">
+        <p id='numeros'></p>
+        <p id='impares'></p>
+    </div>
+    <p></p>
+    <SCript>
+
+//Escribe un programa que pida un número de 3 dígitos y muestre el resultado de sumar sus dígitos.
+let valor=window.prompt('ingrese un numero');
+let largo=valor.length;
+let suma=0;
+let numer='';
+
+for (let i= 0; i < valor.length; i=1+i) {
+
+   suma= suma+parseInt( valor.substring(i,i+1));
+   numer=numer+suma
+   console.log(suma);
+  
+}
+
+
+console.log(suma);
+document.getElementById('numeros').innerHTML=suma;
+    </SCript>
+</body>
+</html>

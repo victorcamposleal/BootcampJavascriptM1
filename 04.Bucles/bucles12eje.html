@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        .resultados p{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding:0px;
+            font-size: 80px;
+        }
+        </style>
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="resultados">
+        <p id='pares'></p>
+        <p id='impares'></p>
+    </div>
+    <p></p>
+
+
+<script>
+let alrevez='';
+let valor;
+let digitos;
+do{
+valor=window.prompt('inntroduce un valor')
+console.log(valor.length);
+for (let i = valor.length; i>=0 ; i=i-1) {
+    
+    digitos=valor.substring(i,i-1);
+alrevez=alrevez+digitos;
+}
+document.getElementById('pares').innerHTML=alrevez;  
+
+}
+while(valor!=='0')
+console.log(digitos);
+    </script>
+</body>
+</html>

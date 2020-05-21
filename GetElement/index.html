@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+
+    <div>
+<h1>titulo</h1>
+<div id="parrafoname">texto</div>
+    </div>
+<script>
+let nombre=window.prompt('como te llamas');
+
+    //document.getElementById('parrafoname').innerHTML= `<p>welcome ${nombre}</p>`;
+    document.getElementById('parrafoname').innerHTML= `<p>welcome`  + nombre + `</p>`;
+
+//iker ejemplo..................................................................................................
+   // let nombre = window.prompt('¿Cómo te llamas?');
+
+// // document.getElementById('parrafo-nombre').innerHTML = '<h1>Hola</h1>'
+// // +'<p>Bienvenido ' + nombre + '</p>';
+// document.getElementById('parrafo-nombre').innerHTML = `
+// <h1>Hola</h1>
+// <p>Bienvenido ${nombre}</p>`;
+</script>
+</body>
+</html>

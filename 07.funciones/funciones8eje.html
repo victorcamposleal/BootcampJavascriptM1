@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+valor=parseInt(window.prompt('dame un valor '))
+window.alert (factorial(valor))
+
+function factorial(valor) {
+
+let acumulador=1;
+for (let i = valor; i>0;i= i-1) {
+  acumulador=acumulador*i
+    
+}
+return acumulador
+    
+}
+
+//Crea una aplicación que nos calcule el factorial de un número pedido por teclado, lo realizará mediante un método al que le pasamos el número como parámetro. Para calcular el factorial, se multiplica los números anteriores hasta llegar a uno. Por ejemplo, si introducimos un 5, realizará esta operación 5*4*3*2*1=120. Mostrar el resultado en un alert.
+</script>
+
+</body>
+</html>

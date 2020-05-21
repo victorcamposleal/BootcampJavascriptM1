@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio10</title>
+    <style>
+.resultados {
+display: flex;
+flex-direction: row;
+justify-content: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+padding: 10px;
+}
+
+.resultados p{
+
+    padding: 10px;
+    border: solid black;
+}
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="resultados">
+        <p id='pares'></p>
+        <p id='impares'></p>
+    </div>
+    <p></p>
+    
+    
+    <script>
+
+        for (let i = 0;i <=12;i++) {
+    if(i%2===0){
+
+            console.log(`el numero ${i} es par por lo tanto el cubo es ${i**3} `);
+            document.getElementById('pares').innerHTML+=`<p>${i} el cubo es ${i**3}</p>`
+
+        }
+
+        if(i%2!==0){
+
+console.log(`el numero ${i} es par por lo tanto el cubo es ${i**2} `);
+document.getElementById('impares').innerHTML+=`<p>${i} el cuadrado es ${i**2}</p>`
+}
+    }
+
+
+
+    
+    </script>
+</body>
+</html>

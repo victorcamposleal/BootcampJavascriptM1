@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+h1{
+
+    font-size: 50 px;
+    color: blueviolet;
+
+
+}
+
+p{
+
+font-size: 30px;
+color:green;
+
+}
+
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="resultados">
+<h1>"tu numero de la suerte"</h1>
+        <p id='pares'></p>
+        <p id='impares'></p>
+    </div>
+    <p></p>
+
+<script>
+
+ 
+let suma1=0;
+let suma2=0;
+let suma3=0;
+
+do {
+
+    let respuesta=window.prompt('quieres saber tu numero de la suerte si o no');
+    if(respuesta==='si'){
+let dia=parseInt(window.prompt('ingrese el dia de nacimiento'));
+let mes= parseInt(window.prompt('ingrese el mes de nacimiento'));
+let año=parseInt(window.prompt('ingrese el nummero de año'));
+    suma1= dia +mes+año;
+    suma1str=`${suma1}`
+    console.log(suma1str);
+    console.log(suma1str.length);
+    console.log(suma1)
+     for (let i = 0; i < suma1str.length; i++) {
+
+       suma2=suma2+parseInt(suma1str.substring(i,i+1))
+         console.log(suma2)
+      }
+    console.log(suma2)
+    let suma2str=`${suma2}`
+for (let i = 0; i < suma2str.length; i++) {
+
+   suma3=suma3+parseInt(suma2str.substring(i,i+1))
+
+}
+      console.log(suma3)
+      document.getElementById('impares').innerHTML+=`<p> tu numero de la suerte es ${suma3}</p>`
+    }
+    respuesta=window.prompt('quieres saber tu numero de la suerte si o no');
+}
+while(respuesta==='si')
+
+    </script>
+</body>
+</html>

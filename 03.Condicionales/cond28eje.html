@@ -1,0 +1,42 @@
+k<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero1=window.prompt('ingrese un numero de tres cifras');
+   
+
+        let digit1number1=numero1.substring(0,1);
+        console.log(digit1number1);
+        let digit2number1=numero1.substring(1,2);
+        console.log(digit2number1);
+        let digit3number1=numero1.substring(2);
+        console.log(digit3number1);
+        let resto1digit1=digit1number1%2;
+        let resto1digit2=digit2number1%2;
+        let resto1digit3=digit3number1%2;
+        
+
+        if(resto1digit1===0&&resto1digit2===0&&resto1digit3===0){
+
+            window.alert(`los numeros de ${numero1} son numeros pares` );
+        }
+        else if(resto1digit1!==0&&resto1digit2!==0&&resto1digit3!==0){
+
+            window.alert(`los numeros de  ${numero1} son numeros impares` );
+
+
+        }
+        else{
+
+            window.alert(`los numeros de ${numero1} son mezclas de pares e impares` );
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>carpinteria</title>
+</head>
+
+<body>
+    <header>
+        <h1>carpinteria mazarredo</h1>
+        <img src="logo.svg" alt="logo carpinteria">
+
+    </header>
+
+
+    <main class="herramientas">
+
+
+
+        <div id="brocha">
+            <img src="brocha.svg" alt="brocha">
+            <p> 3 €/Ud</p>
+            <button onclick="agregarBrocha()">añadir</button>
+            <button onclick="quitarBrocha()">quitar</button>
+
+
+        </div>
+
+
+        <div id="llave">
+            <img src="llave.svg" alt="brocha">
+            <p> 5 €/Ud</p>
+            <button onclick="agregarLlave()">añadir</button>
+            <button onclick="quitarLlave()">quitar</button>
+        </div>
+
+         <div id="tronco">
+    
+            <img src="tronco.svg" alt="brocha">
+            <p> 2 €/Ud</p>
+            <button onclick="añadir()">añadir</button>
+            <button onclick="quitar()">quitar</button>
+        </div>
+
+      <!--  <div id="martillo">
+            <img src="martillo.svg" alt="brocha">
+            <button onclick="añadir()">añadir</button>
+            <button onclick="quitar()">quitar</button>
+        </div> -->
+
+
+    </main>
+
+
+    <footer id="cestaBrocha">
+        <h1>Cesta</h1>
+
+
+        <div id="cestaBrocha">
+            <p id="totalUnidades"></p>
+            <p id="totalPrecio"></p>
+            <p id="imagenBrocha"></p>
+
+        </div>
+
+
+        <div id="cestaLlave">
+            <p id="totalUnidadesLlave"></p>
+            <p id="totalPrecioLlave"></p>
+            <p id="imagenLlave"></p>
+
+        </div>
+    </footer>
+    <script>
+
+
+
+        //declaramos la variable valor fuera de la funcion para que cuando coga un valor en la funcion no sea cero de nuevo y podamos utilizarla en ortras fuciones 
+        //declaramos el precio fuera de la funcion
+        let valor = 0;
+        let mostrar = ``;
+        let precioBrocha = 3;
+        // comentatio: en la funcion agregarBorcha cada vez que hacemos click se agrega una brocha en forma de texto y numerico,se calcula el precio en base a el numemro en base a el numero dde unidades, 
+        function agregarBrocha() {
+            valor = valor + 1;
+            //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+            if (valor < 0 || valor === 0) {
+                document.getElementById('totalUnidades').innerHTML = `<p>brocha:0</p>`
+                document.getElementById('totalPrecio').innerHTML = `  <p>total:0€</p>`
+
+            }
+            //comentario:  si el valor es mayor a 
+            else if (valor > 0) {
+                document.getElementById('totalUnidades').innerHTML = `<p>brocha:${valor}</p>`
+                document.getElementById('totalPrecio').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
+                //document.getElementById('imagenBrocha').innerHTML+=`<img src="brocha.svg" alt="brocha">`
+                // mostrar=``;
+                //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                document.getElementById('imagenBrocha').innerHTML = ``;
+
+                //comentario:bucle for para imprimir imagenes
+                for (let i = 0; i < valor; i++) {
+                    document.getElementById('imagenBrocha').innerHTML += `<img src="brocha.svg" alt="brocha">`
+                }
+                //mostrar=mostrar+`<img src="brocha.svg" alt="brocha">`
+
+            }
+
+            ///document.getElementById('imagenBrocha').innerHTML=mostrar
+
+        }
+
+        // comentatio: en la funcion quitarBrcha cada vez que hacemos click se quita una brocha en forma de texto y numerico,se calcula el precio en base a el numemro en base a el numero dde unidades, 
+        function quitarBrocha() {
+            valor = valor - 1;
+            //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+            if (valor < 0 || valor === 0) {
+                document.getElementById('totalUnidades').innerHTML = `<p>brocha:0</p>`
+                document.getElementById('imagenBrocha').innerHTML = ``;
+                document.getElementById('totalPrecio').innerHTML = `  <p>total:0€</p>`
+            }
+            else if (valor > 0) {
+                document.getElementById('totalUnidades').innerHTML = `<p>brocha:${valor}</p>`
+                document.getElementById('totalPrecio').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
+                //mostrar=``;
+                //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                document.getElementById('imagenBrocha').innerHTML = ``;
+                //comentario:bucle for para imprimir imagenes
+                for (let i = 0; i < valor; i++) {
+                    document.getElementById('imagenBrocha').innerHTML += `<img src="brocha.svg" alt="brocha">`
+                }
+            }
+            //document.getElementById('imagenBrocha').innerHTML=mostrar
+        }
+
+        let unidadLlave = 0;
+        let precioLlave = 5;
+        function agregarLlave() {
+            unidadLlave = unidadLlave + 1;
+            //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+            if (unidadLlave < 0 || unidadLlave === 0) {
+                document.getElementById('totalUnidadesLlave').innerHTML = `<p>Llave:0</p>`
+                document.getElementById('totalPrecioLlave').innerHTML = `  <p>total:0€</p>`
+            }
+            //comentario:  si el valor es mayor a 
+            else if (unidadLlave > 0) {
+                document.getElementById('totalUnidadesLlave').innerHTML = ` <p>Llave:${unidadLlave}</p>`
+                document.getElementById('totalPrecioLlave').innerHTML = `  <p>total:${precioLlave * unidadLlave}€</p>`
+                //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                document.getElementById('imagenLlave').innerHTML = ``;
+                //comentario:bucle for para imprimir imagenes
+                for (let i = 0; i < unidadLlave; i++) {
+                    document.getElementById('imagenLlave').innerHTML += ` <img src="llave.svg" alt="brocha">`
+                }
+            }
+        }
+            function quitarLlave() {
+                unidadLlave = unidadLlave - 1;
+                //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+                if (unidadLlave < 0 || unidadLlave === 0) {
+                    document.getElementById('totalUnidadesLlave').innerHTML = `<p>Llave:0</p>`
+                    document.getElementById('imagenLlave').innerHTML = ``;
+                    document.getElementById('totalPrecioLlave').innerHTML = ` <p>total:0€</p>`
+                }
+                else if (unidadLlave > 0) {
+                    document.getElementById('totalUnidadesLlave').innerHTML = ` <p>Llave:${unidadLlave}</p>`
+                    document.getElementById('totalPrecioLlave').innerHTML = `  <p>total:${precioLlave * unidadLlave}€</p>`
+                    //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                    document.getElementById('imagenLlave').innerHTML = ``;
+                    //comentario:bucle for para imprimir imagenes
+                    for (let i = 0; i < unidadLlave; i++) {
+                        document.getElementById('imagenLlave').innerHTML += ` <img src="llave.svg" alt="brocha">`
+                    }
+                }
+            }
+        
+
+
+
+
+// Vamos a crear una página web para la Carpintería Mazarredo. Después le vamos a mostrar cuatro divs en los que tendremos como título “brocha”, “llave”, “martillo” y “tronco” junto con el precio de cada uno y un botón en el que hará click para añadir una unidad del producto a la cesta y otro para quitar una unidad del producto a la cesta. Cada vez que hagamos click en uno de los botones (8 botones en total, 2 para añadir/restar una brocha, 2 para añadir/restar una llave, 2 para añadir/restar un martillo y 2 para añadir/restar un tronco) se mostrará en la cesta un mensaje con el texto
+// 	Martillos: 7
+// 	Llaves: 5
+// Para cada producto que tenga más de 0 unidades en la cesta, seguida del icono del producto tantas veces como unidades haya en la cesta (en el ejemplo anterior, aparecerían 7 iconos uno tras otro después de Martillos: 7)
+
+// Para acabar teniendo este programa, podemos hacerlo por partes:
+
+// En primer lugar crear una página con un sólo producto y un sólo botón. Al hacer click en el botón se le sumará uno al total y en el mensaje de la cesta aparecerá el número total que tengamos.
+
+// Una vez tengamos la parte anterior funcionando, hacer que en vez de mostrar el número solamente, la cesta muestre “Martillos: 7”, combinando el número con el nombre del producto.
+
+// Una vez tengamos la parte anterior funcionando, añadiremos que se muestre el icono del producto tantas veces como unidades tengamos en la cesta.
+
+// Cuando todo funcione correctamente para un producto añadiremos otro. El código será parecido pero tendremos que modificar ciertas partes.
+
+// Finalmente, una vez tengamos dos productos funcionando correctamente, añadiremos los otros dos (o podemos añadir primero el tercero, comprobar que funcione y bien y después añadir el cuarto)
+
+    </script>
+</body>
+
+</html>

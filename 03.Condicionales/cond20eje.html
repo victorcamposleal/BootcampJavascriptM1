@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="comidaelegida"></div>
+    
+    <P></P>
+    
+    
+    <script>
+window.alert('el menu de hoy es: tacos,chueleton,ribs,sushi. elige una opcion')
+let comida=window.prompt('que quieres comer del menu');
+let choice=document.getElementById('comidaelegida');
+
+// if(comida ==='tacos'){
+
+//     console.log('haz elegido tacos');
+    
+//     window.alert('haz elegido tacos');
+// }
+// else if (comida==='chuleton'){
+
+// console.log('haz elegido chuleton');
+// window.alert('haz elegido chuleton');
+// }
+// else if(comida==='ribs'){
+
+// console.log('haz elegido ribs');
+// window.alert('haz elegido ribs');
+// }
+// else if(comida==='sushi'){
+
+// console.log('haz elegido sushi');
+// window.alert('haz elegido sushi');
+// }
+
+// else{
+//     window.alert('no lo tenemos');
+
+// }
+
+
+switch(comida){
+
+    
+case 'tacos':
+ window.alert('haz elegido tacos');
+ choice.innerHTML= '<P>HAZ ELEGIDO '+ comida+ '</P>';
+ break ;
+ case 'chuleton':
+ window.alert('haz elegido chuleton');
+ choice.innerHTML= '<P>HAZ ELEGIDO '+ comida+ '</P>';
+ break;
+ case 'ribs':
+ window.alert('haz elegido ribs');
+ choice.innerHTML= '<P>HAZ ELEGIDO '+ comida+ '</P>';
+ break;
+
+ case 'sushi':
+ window.alert('haz elegido sushi');
+ choice.innerHTML= '<P>HAZ ELEGIDO '+ comida+ '</P>';
+ break;
+ default:
+
+  window.alert('no lo tenemos');
+  choice.innerHTML= '<P>no tenemos '+ comida+ '</P>';
+
+   break;
+}
+
+
+
+    </script>
+</body>
+</html>

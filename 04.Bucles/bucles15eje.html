@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id='pares'></p>
+    </div>
+    <script>
+let numero=window.prompt('ingresa un numero');
+let suma;
+let simbolos;
+let asterisco="";
+
+
+
+
+console.log(numero.length)
+for (let i = 0; i < numero.length; i=i+1) {
+    
+    simbolos=numero.substring(i,i+1);
+  //console.log(simbolos);
+  suma=asterisco+simbolos;
+
+  
+asterisco=suma.replace(simbolos,'*');
+console.log(suma);
+  //console.log(suma)
+  //console.log(numero.replace((numero.substring(i,i+1))),'*');
+  document.getElementById('pares').innerHTML+=`<p> el numero ${asterisco} es ${simbolos} </p>`
+
+}
+
+console.log(`el numero ${asterisco} es ${asterisco} `);
+            document.getElementById('pares').innerHTML+=`<p> el numero ${asterisco} es ${numero} </p>`
+
+        
+
+
+// let palabra = window.prompt('Escribe una palabra'); // 'hola'
+
+// for(let i = 0; i < palabra.length; i = i+ 1) {
+//     console.log(palabra.substring(i, i+1));
+// }
+    </script>
+</body>
+</html>
+

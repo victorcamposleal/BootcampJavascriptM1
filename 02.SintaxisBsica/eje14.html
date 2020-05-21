@@ -1,0 +1,58 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    
+        <script>
+    //ejercicio9
+let metros=parseInt(window.prompt('ingrese los metros recorridos'));
+let horas=parseInt(window.prompt('ingrese el tiempo en horas que tardo en recorrer la distancia'));
+let minutos=parseInt(window.prompt('ingrese el tiempo en minutos que tardo en recorrer la distancia'));
+let tiemposec=parseInt(window.prompt('ingrese el tiempo en segundo que tardo en recorrer la distancia'));
+let tiempomin=(tiemposec/60);
+let tiempohora=(tiempomin/60);
+let kilometros=(metros/1000);
+
+console.log('el tiempo hora es '+ tiempohora);
+console.log('el tiempo  min es '+ tiempomin);
+console.log('el tiempo segundo es '+ tiemposec );
+console.log('la distancia en metros es '+ metros );
+console.log ('la distancia en kilometros es '+ kilometros );
+
+
+//v=d/t
+kilometrosporhora=(kilometros/tiempohora);
+console.log(kilometrosporhora +' kilometros por hora')
+metrossegundo=(metros/tiemposec);
+console.log(metrossegundo +' metros por segundo');
+
+window.alert('recorriste'+ metros + ' metros en '+ tiemposec +' segundos tu velocidad es '+ metrossegundo+'metros por segundo');
+window.alert('recorriste'+ kilometros + ' kilometros en '+ tiempohora+' horas tu velocidad es' + kilometrosporhora + ' kilometros por hora');
+
+console.log('recorriste'+ metros + ' metros en '+ tiemposec +' segundos tu velocidad es '+metrossegundo+' metros por segundo' );
+console.log('recorriste '+ kilometros + ' kilometros en '+ tiempohora+' horas tu velocidad es '+kilometrosporhora + ' kilometros por hora')
+////
+//repuesta alterna
+timehora= horas+ (minutos/60)+ (tiemposec/3600);
+console.log(timehora)
+timeseg=tiemposec+ (horas*3600)+ (minutos*60);
+console.log(timeseg)
+mseg=metros/timeseg;
+khora=kilometros/tiempohora;
+console.log('recorriste'+ kilometros + ' kilometros en '+ timehora+' horas tu velocidad es '+khora+ ' kilometros por hora');
+console.log('recorriste'+ metros + ' metros en '+ timeseg +' segundos tu velocidad es '+mseg+' metros por segundo' );
+
+
+
+
+
+
+
+
+         </script>
+        </body>
+        </html>
