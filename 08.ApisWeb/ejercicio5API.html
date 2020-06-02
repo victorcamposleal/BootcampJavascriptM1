@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<select id="poketipos" onchange="cogepokes()">
+    <option>elige una opción</option>
+
+
+    <h1>Pokemons del dia</h1>
+<div id='pikachu'>  
+
+
+
+
+</div>
+</select>
+    
+    
+    <script>
+let pokes;
+
+
+fetch('https://pokeapi.co/api/v2/')
+.then(function pokedtata(pokedats) {
+   return pokedats.json();
+    
+})
+ .then(function datospoke(datospokes) {
+pokes=datospokes.type
+fetch( `${pokes}`)
+.then(function tipos(tipodato) {
+
+    return tipodato.json()
+    
+})
+.then( function typedata(datatype) {
+
+
+
+let tipospokes="";
+for (let i = 0; i <datatype.results.length; i++) {
+    tipospokes=datatype.results[i].name
+    document.getElementById("poketipos").innerHTML+= `<option>${tipospokes}</option>`
+}
+}
+)
+})
+
+
+
+let pokepik="";
+let pokemons;
+function cogepokes() {
+
+pokemons=document.getElementById("poketipos").value
+    window.alert(`haz elegido ${pokemons} `)
+
+
+
+
+fetch(`${pokes}`)
+.then(function pokemon(pokemon1) {
+
+    return pokemon1.json();
+    
+}
+
+)
+.then( function poke(pokemon2) {
+
+for (let i = 0; i < pokemon2.results.length; i++) {
+    if (pokemons===pokemon2.results[i].name) {  
+         
+        pokepik=pokemon2.results[i].url
+
+}
+}
+fetch(`${pokepik}`)
+.then(function pokedato2(pokedato) {
+    return pokedato.json()
+ })
+ .then(function pokedez(pokedex) {
+let pokeLista="";
+let pokemoni="";
+console.log(pokedex.pokemon[(Math.floor(Math.random()*50))].pokemon.name)
+for (let i = 0; i < 3; i++) {
+   pokemoni=pokeLista+pokedex.pokemon[(Math.floor(Math.random()*50))].pokemon.name
+    console.log(pokemoni)
+    //document.getElementById('pikachu').innerHTML+=`<p>${pokemoni}</p>`
+    //document.getElementById('pikachu').innerHTML+=`<p>${pokemoni}</p>`
+    //document.getElementById('pokemons').innerHTML+= `<p>${pokedex.pokemon[(Math.floor(Math.random()*50))].pokemon.name}</p>`;
+    //document.getElementById('persons').innerHTML +=`<p>${lolos.name} <p>`
+}
+     console.log(pokemoni)
+ })
+ 
+
+    
+}
+
+) 
+
+
+
+
+}
+
+    </script>
+    
+</body>
+</html>

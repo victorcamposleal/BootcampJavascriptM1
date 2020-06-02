@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="planeta1">
+<p id="planet1"></p>
+<p id="planetafoto1"></p>
+<p id='planetacolor1'></p>
+<p id='planetatemperatur1'></p>
+
+    </div>
+    <div id="planeta2">
+        <p id="planet2"></p>
+        <p id="planetafoto2"></p>
+        <p id='planetacolor2'></p>
+        <p id='planetatemperatur2'></p>
+
+
+
+    </div>
+    <div id="planeta3">
+        <p id="planet3"></p>
+<p id="planetafoto3"></p>
+<p id='planetacolor3'></p>
+<p id='planetatemperatur3'></p>
+    </div>
+
+
+
+    <script>
+
+
+let sistemaSolar = {
+
+mercurio: {
+    nombre: 'mercurio',
+    color: 'gray',
+    temperatura: 350,
+    imagen: 'https://www.astromia.com/fotosolar/fotos/planetamercurio.jpg'
+
+},
+venus: {
+    nombre: 'venus',
+    color: 'white',
+    temperatura: 460,
+    imagen : 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/220px-Venus-real_color.jpg'
+
+},
+tierra: {
+    nombre: 'tierra',
+    color: 'grey',
+    temperatura: 14,
+    imagen : 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a0ab2a75bafe87f4d3f9a63/acaba-tiempo_0.jpg'
+},
+marte: {
+    nombre: 'marte',
+    color: 'red',
+    temperatura: -46,
+    imagen : 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365b6b34099b0279c8fb2e/slide-marte.jpg'
+},
+jupiter: {
+    nombre: 'jupiter',
+    color: 'brown',
+    temperatura: -121,
+    imagen : 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jupiter_by_Cassini-Huygens.jpg/280px-Jupiter_by_Cassini-Huygens.jpg'
+},
+saturno: {
+    nombre: 'saturno',
+    color: 'yellow',
+    temperatura: -130,
+    imagen : 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/558d2b15010e26221b57df75/saturno.jpg'
+},
+urano: {
+    nombre: 'urano',
+    color: 'pink',
+    temperatura: -205,
+    imagen : 'http://www.manzanares.es/v2/sites/paseo/img/urano/urano1.jpg'
+},
+neptuno: {
+    nombre: 'neptuno',
+    color: 'blue',
+    temperatura: -220,
+    imagen : 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/280px-Neptune_Full.jpg'
+},
+pluton: {
+    nombre: 'pluton',
+    color: 'green',
+    temperatura: -229,
+    imagen : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nh-pluto-in-true-color_2x_JPEG.jpg/1200px-Nh-pluto-in-true-color_2x_JPEG.jpg'
+}
+
+};
+
+//planeta 1
+let planeta1=(window.prompt('introduce un planeta')).toLowerCase()
+
+console.log(planeta1)
+
+document.getElementById("planet1").innerHTML=`<p>${sistemaSolar[planeta1].color}</p>`
+document.getElementById("planetatemperatur1").innerHTML=`<p>${sistemaSolar[planeta1].temperatura}</p>`
+document.getElementById("planetafoto1").innerHTML=`<p> <img src=${sistemaSolar[planeta1].imagen} alt=""></p>`
+document.getElementById("planeta1").style.backgroundColor=`${sistemaSolar[planeta1].color}` 
+//planeta 2
+let planeta2=(window.prompt('introduce un planeta')).toLowerCase()
+
+console.log(planeta2)
+
+document.getElementById("planet2").innerHTML=`<p>${sistemaSolar[planeta2].color}</p>`
+document.getElementById("planetatemperatur2").innerHTML=`<p>${sistemaSolar[planeta2].temperatura}</p>`
+document.getElementById("planetafoto2").innerHTML=`<p> <img src=${sistemaSolar[planeta2].imagen} alt=""></p>`
+document.getElementById("planeta2").style.backgroundColor=`${sistemaSolar[planeta2].color}` 
+
+//planeta 3
+let planeta3=(window.prompt('introduce un planeta')).toLowerCase()
+
+console.log(planeta3)
+
+document.getElementById("planet3").innerHTML=`<p>${sistemaSolar[planeta3].color}</p>`
+document.getElementById("planetatemperatur3").innerHTML=`<p>${sistemaSolar[planeta3].temperatura}</p>`
+document.getElementById("planetafoto3").innerHTML=`<p> <img src=${sistemaSolar[planeta3].imagen} alt=""></p>`
+document.getElementById("planeta3").style.backgroundColor=`${sistemaSolar[planeta3].color}` 
+
+    </script>
+</body>
+</html>

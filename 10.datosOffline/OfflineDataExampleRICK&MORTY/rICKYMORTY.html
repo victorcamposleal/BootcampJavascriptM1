@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick&Morty</title>
+<style>
+
+*{
+    box-sizing: border-box;
+}
+    
+    #personas{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .foto{
+        
+        display: flex;
+        flex-direction: row;
+        border-bottom: black solid;
+        border-radius: 0px;
+        justify-content:space-between;
+        margin-bottom: 10px;
+    }
+    
+    
+img{
+ 
+width: 30%;
+ 
+
+}
+
+    .text{
+  
+    bottom: 10px;
+    color:black;
+    text-align: center;
+    
+    }
+
+
+
+
+    a{
+ border-radius: 5px;
+ border: style solid;
+ background-color: cornflowerblue;
+text-decoration: none;
+color: white;
+padding: 10px;
+position: fixed;
+bottom: 15px;
+right: 15px;
+}
+
+
+    @media (min-width: 600px) {
+     #personas{
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+
+     }
+    
+     .foto{
+
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        border-bottom:none;
+        margin: 20px;
+
+
+
+        
+        
+        
+    }
+    
+    .text{
+        position:absolute;
+        bottom: 10px;
+        color: white;
+        background-color: rgb(0,0,0,0.2);
+        text-align: center;
+        width:100% ;
+        
+    }
+    
+    img{
+        width:100% ;
+    }
+    
+}
+a{
+ border-radius: 5px;
+ border: style solid;
+ background-color: cornflowerblue;
+text-decoration: none;
+color: white;
+padding: 10px;
+position: fixed;
+bottom: 15px;
+right: 15px;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+    
+<div id="personas">
+</div>
+
+<a href="Ricckandmortypage2.html">GO AND SEE YOUR FAVORITE CHOICES</a>
+
+    <script>
+let personajes;
+        fetch('https://rickandmortyapi.com/api/character/')
+
+        .then(function CogeData(data){
+        
+       return (data.json());
+            
+        })
+        .then(function pickData(datos) {
+            console.log(datos.results)
+            personajes=datos.results;
+            let persons="";
+           for (let i = 0; i < personajes.length; i++) {
+             //añadio un boton a la estructura de los personajes   
+               persons+=`<div class="foto">
+               <img src="${personajes[i].image}" alt="">
+               <div class="text">
+               <h1>${personajes[i].name}</h1>
+              <p>${personajes[i].status}</p>
+              <button onclick="guardarPersonaje('${personajes[i].name}','${personajes[i].image}')">
+        Añadir Personaje
+    </button>
+             </div>
+              </div>`
+
+                
+        }
+        document.getElementById("personas").innerHTML=persons
+        })
+        
+// hacemos una variable tipo array donde guardaremos los personajes cada vez que hagan click
+// si hay algo que anterioirmente habian cargado se mostrara
+    let favorito; 
+    favorito=JSON.parse(localStorage.getItem('favoritoss'))
+//si no hay nada en el listado de la variable memoria favorito se incializara de nuevo el array por ejemplo cuando visitamos por primera vez la pagina
+     if (favorito===null) {
+        favorito=[];
+        }             
+//hacemos una funcion en donde iremos guardando los personajes favoritos
+
+
+
+function guardarPersonaje(nombre,imagen) {
+ window.alert(nombre);
+ //guardamos los nombre en el array vacio
+ favorito.push(nombre,imagen)
+ // el array que acabamos de sacr de nombre personajes favoritos lo concvierto en un lenguaje de texto .JSOLN
+ let favoritoEnJSON=JSON.stringify(favorito);
+ //intoducimos los perosnajes guardaDOS en foma de JSON con la clave de favoritos key
+ localStorage.setItem('favoritoss',favoritoEnJSON)
+
+ }
+
+
+// perosnajesGuardados()
+// function perosnajesGuardados() {
+//     document.getElementById("favoritos").innerHTML="";
+// for (let i = 0; i < favorito.length; i++) {
+// document.getElementById("favoritos").innerHTML+=`<li>${favorito[i]}</li>`
+    
+// }
+    
+// }
+
+    </script>
+</body>
+</html>

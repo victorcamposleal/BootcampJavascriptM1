@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+    <style>
+ul{
+    list-style: none;
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <a href="peliculasLocalstorage.html">Películas</a>
+    </div>
+    <ul id="peliculas"></ul>
+    <script>
+        // obtenemos el valor guardado en el almacenamiento local
+        // con la clave 'listado' y lo convertimos en JavaScript
+        // desde JSON con el método JSON.parse() y lo guardamos
+        // en la variable listado (un array)
+        let listado = JSON.parse(localStorage.getItem('listado'));
+
+        // si el listado no existe en el almacenamiento local, nos
+        // devolverá un valor nulo, en ese caso ponemos en la
+        // variable listado un array vacío
+        if(listado === null) {
+            listado = [];
+        }
+
+        mostrarPeliculas();
+
+        function mostrarPeliculas() {
+            // Vaciamos el contenido del <ul> con id peliculas
+            document.getElementById('peliculas').innerHTML = '';
+            // Añadimos cada uno de los elementos del array listado como un <li> dentro del <ul>
+            for (let i = 0; i < listado.length; i++) {
+                document.getElementById('peliculas').innerHTML += `<li>${listado[i]}</li>`;
+            }
+        }
+    </script>
+</body>
+</html>

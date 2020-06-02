@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="color"></p>
+    <p></p>
+
+
+    <script>
+let numero=parseInt(window.prompt('dame un numero '))
+
+if (numero<100) {
+
+document.getElementById('color').innerHTML=  `<p style="color:red;""font-size:80px;">  ${numero}  </p>`
+    
+}
+
+
+if (numero>=100&&numero<=200) {
+
+    document.getElementById('color').innerHTML=  `<p style="color:yello;""font-size:80px;">  ${numero}  </p>`
+    
+}
+
+
+if (numero>100) {
+    document.getElementById('color').innerHTML=  `<p style="color:green;" "font-size:80px;"> ${numero}   </p>`
+}
+
+
+    </script>
+
+
+
+</body>
+</html>

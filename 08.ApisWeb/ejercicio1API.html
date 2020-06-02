@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <button onclick="verPersonaje()">Ver Personaje</button>
+    <p id="Personaje"></p>
+    <p id= "episode"></p>
+    <p></p>
+    <script>
+        function verPersonaje() {
+            fetch('https://rickandmortyapi.com/api/character')
+                .then(
+                    function cogerRespuesta(respuesta) {
+                        // .json() es equivalente a obtener el body y hacer un JSON.parse() del mismo
+                        return respuesta.json();
+                    }
+                )
+                .then(
+                    function cogerDatos(datos) {
+                        let chiste = datos.results[1].name;
+                        let imagen;
+                    for (let i = 0; i < 20; i++) {
+                        chiste = datos.results[i].name;
+                        image=datos.results[i].image;
+                        document.getElementById('Personaje').innerHTML += `<p>${chiste}<p>
+                            <img src="${image}" alt="">`
+                    }
+                       
+                    }
+                );
+        }
+
+        fetch('https://rickandmortyapi.com/api/character')
+
+        .then(function cogerDatos(answer) {
+
+
+            //regresame la respuesta y conviertemelo a json
+            return(answer.json());
+            
+        })
+        .then(
+            function formulas(bird) {
+                console.log(bird)
+
+                for (let index = 0; index < bird.results.length; index++) {
+                    document.getElementById("episode").innerHTML+= `<p> ${bird.results[index].gender}</p>`
+                    
+                }
+
+
+            
+        })
+
+    </script>
+</body>
+
+</html>

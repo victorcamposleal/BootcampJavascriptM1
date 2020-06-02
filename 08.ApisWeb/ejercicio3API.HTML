@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<input type="text" placeholder="anio" id="anio">
+<input type="text" placeholder="mes" id="mes">
+<input type="text" placeholder="dia" id="dia">
+<button onclick="nasa()">Saca datos de la Nasa</button>
+<div></div>
+<div id="NASA">
+    <img src="" alt="">
+    <p></p>
+</div>
+
+
+
+<body>
+    <script>
+
+let anio;
+let mes;
+let dia;
+let fecha;
+
+
+    
+// let fecha=document.getElementById("año").value-document.getElementById("mes").value-document.getElementById("año").value
+
+function nasa() {
+año=document.getElementById("anio").value
+mes=document.getElementById("mes").value
+dia=document.getElementById("dia").value
+fecha=  año+"-"+mes+"-"+dia
+fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${fecha}`)
+.then(function datosNasa(data) {
+    
+     return data.json()
+}
+
+ )
+ .then(function recogeNasa(respuesta) {
+
+document.getElementById("NASA").innerHTML=`<div<p>${respuesta.date}</p>
+<p>${respuesta.title}</p>
+<img src="${respuesta.url}" alt="">
+<p>${respuesta.explanation}</p> <div>`
+
+ }
+
+)
+
+}
+
+// //1- Crea una página con tres cajas de texto en la que se le pida al usuario un año, un mes y un día. Al apretar un botón, se le hace una petición a la API de la NASA de APOD, y muestra la fecha, el título, la imágen y la descripción en la página.
+// //Para usar la API de la NASA se necesita una clave de verificación. 
+
+
+    </script>
+</body>
+</html>

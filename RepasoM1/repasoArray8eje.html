@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let edades= [];
+
+    for (let i = 0; i < 20; i++) {
+    
+    edades[i]=Math.floor((Math.random()*17)+18)
+       console.log(edades[i])
+    }
+
+let acumulado=0;
+    for (let i = 0; i < 20; i++) {
+    
+    acumulado=edades[i]+acumulado
+    }
+console.log(Math.round(acumulado/20));
+    
+</script>
+</body>
+</html>

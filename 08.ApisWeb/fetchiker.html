@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <button onclick="verChiste()">Ver chiste</button>
+    <p id="chiste"></p>
+    <script>
+        function verChiste() {
+            fetch('http://api.icndb.com/jokes/random')
+                .then(
+                    function cogerRespuesta(respuesta) {
+                        // .json() es equivalente a obtener el body y hacer un JSON.parse() del mismo
+                        return respuesta.json();
+                    }
+                )
+                .then(
+                    function cogerDatos(datos) {
+                        let chiste = datos.value.joke;
+                        document.getElementById('chiste').innerHTML = chiste;
+                    }
+                );
+        }
+
+    </script>
+</body>
+
+</html>

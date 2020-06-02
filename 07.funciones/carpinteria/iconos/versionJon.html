@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="brocha.svg" alt="">
+        <h2>Brochas</h2>
+        <!-- en el evento onclick agregamos una función llamada modificarProducto, a la que le pasamos el nombre de la herramienta y la operación que queremos hacer (sumar/quitar)-->
+        <button onclick="modificarProducto('brocha', 'sumar')">Añadir</button>
+        <button onclick="modificarProducto('brocha', 'quitar')">Quitar</button>
+    </div>
+
+
+    <div>
+        <img src="martillo.svg" alt="">
+        <h2>Martillo</h2>
+        <button onclick="modificarProducto('martillo', 'sumar')">Añadir</button>
+        <button onclick="modificarProducto('martillo', 'quitar')">Quitar</button>
+    </div>
+
+
+    <script>
+        //en este caso no vamos a crear variables para almacenar la cantidad de brochas o martillos. vamos a tener cada producto dentro de un objeto y los objetos estarán dentro de un array.
+
+        let productos = [{
+            nombre: "brocha",
+            cantidad: 0
+        },
+        {
+            nombre: "martillo",
+            cantidad: 0
+        }]
+
+        //usaremos la misma función de la versión anterior
+
+        function modificarProducto(herramienta, operacion) {
+
+            //comprobamos el valor de la operación: sumar o quitar (son los valores que hemos especificado en el HTML, así que sabemos que solo puede llegar uno de esos dos valores). si la operación es 'sumar', entramos aquí
+
+            if (operacion === 'sumar') {
+                //en este caso no vamos a usar condicionales directamente. como tenemos la información de los productos dentro de un array, recorreremos ese array con un bucle for.
+
+                for (let i = 0; i < productos.length; i++) {
+                    //dentro del bucle comprobaremos si el nombre de alguno de los objetos dentro del bucle coincide con el valor del parámetro herramienta. usaremos un if para ello.
+                    if (productos[i].nombre === herramienta) {
+                        //si coincide, sumaremos uno a la cantidad del producto y mostraremos el valor en la consola
+                        productos[i].cantidad++;
+                        console.log(productos[i].cantidad);
+                    }
+                }
+
+            }
+            //si la operación no es igual a sumar, comprobamos si es igual a 'quitar'. en ese caso, entramos aquí y ejecutamos un código igual al anterior, pero quitando la cantidad en vez de sumando.
+            else if (operacion === 'quitar') {
+                for (let i = 0; i < productos.length; i++) {
+                    if (productos[i].nombre === herramienta) {
+                        productos[i].cantidad = productos[i].cantidad - 1;
+                        console.log(productos[i].cantidad);
+                    }
+                }
+            }
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

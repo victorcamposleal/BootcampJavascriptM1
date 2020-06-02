@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars</title>
+</head>
+<body>
+  
+    <select id="papeleria">
+        <option value="boligrafo negro"></option>
+        <option value="boligrafo rojo"></option>
+        <option value="boligrafo azul"></option>
+        <option value="boligrafo verde" ></option>
+    </select>
+
+    <button onclick="mostrarBoligrafo()">Click</button>
+
+    <script>
+        function mostrarBoligrafo(){
+            let desplegable = document.getElementById('papeleria');
+            window.alert(desplegable.value);
+        }
+
+    </script>
+
+</body>
+</html>

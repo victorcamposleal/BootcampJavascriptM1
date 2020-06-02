@@ -1,0 +1,43 @@
+* {box-sizing: border-box;
+
+
+}
+p{
+    width: 10%;
+    padding:20px;
+    text-align: center;
+    color:white;
+    background-color: tomato;
+    transition: transform 10s,width 1s 1s,background-color 2s ;
+
+}
+
+p:hover{
+background-color: thistle;
+width: 20%;
+transform: translateX(250px);
+transform: rotateZ(720deg);
+
+}
+
+img{
+
+    width: 20%;   
+    transition: all 1s;
+    transform-origin: 100% , 100%;
+}
+
+
+/* img:hover{
+transform: rotateZ(720deg);
+width: 10%;
+   
+} */
+
+
+.rotandos{
+
+    width: 20%;   
+    transition: all 1s;
+    transform: rotateZ(720deg);
+}

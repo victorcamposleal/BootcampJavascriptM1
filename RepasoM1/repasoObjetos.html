@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    personaje= {nombre:"titin",edad:34,"mascota":"dynamo",
+    cohe:["Lobo","Grand Cherokee","velar Rangerover","Hummer H1","BMW X6","Escalade"],mascota:{nombre:'milu',comida:'cereal de maca'}}
+
+
+    console.log(personaje.edad)
+console.log(personaje["mascota"]) 
+personaje.nombre="blade"; 
+console.log(personaje.nombre)          
+personaje.edad=window.prompt('elige una edad');
+
+console.log(personaje.edad)
+console.log(personaje.cohe[2])
+personaje.profesion='periodista';
+console.log(personaje);
+delete personaje.profesion
+console.log(personaje);
+
+console.log(personaje.mascota.comida);
+
+    </script>
+</body>
+</html>

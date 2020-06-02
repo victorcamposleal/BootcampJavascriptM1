@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+<div id='numeros'></div>
+<input type="text" placeholder="pares o impares" id="numero">
+<button onclick="pares()">haz click</button>
+<p></p>
+<script>
+
+let respuesta;
+console.log(respuesta)   
+function pares(){
+    document.getElementById('numeros').innerHTML+="";   
+    respuesta=document.getElementById("numero").value
+if (respuesta==='pares') {
+for (let i = 0; i <=100;i= i+1) {
+    if (i%2===0) {
+console.log(i)
+document.getElementById('numeros').innerHTML+=`<p>${i} es numero par</p>`
+
+}
+ }
+}
+    
+if (respuesta==='impares') {
+for (let i = 0; i <=100;i= i+1) {
+    if (i%2!==0) {
+console.log(i)  
+document.getElementById('numeros').innerHTML+=`<p>${i} es numero impar</p>`  
+}
+ }
+}
+}
+</script>
+
+
+</body>
+</html>

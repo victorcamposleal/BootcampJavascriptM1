@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+</head>
+<body>
+    <select onchange="mostrarSeleccionado()" id="coche">
+        <option value="" disabled>Elige una opción</option>
+        <option value="1">Fiat</option>
+        <option value="2" selected>Seat</option>
+        <option value="3">Renault</option>
+        <option value="4">Mazda</option>
+    </select>
+    <!-- <button onclick="mostrarSeleccionado()">Enviar</button> -->
+    <script>
+        function mostrarSeleccionado() {
+            let seleccionado = document.getElementById('coche').value;
+            window.alert(seleccionado);
+
+
+
+
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+    <style>
+        textarea {
+            width: 200px;
+            height: 50px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea></textarea>
+</body>
+</html> -->

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        button img {
+            width: 20px;
+        }
+        a {
+            background-color: aquamarine;
+            color: white;
+            padding: 5px 25px;
+            border: 1px solid rgb(28, 150, 109);
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: rgb(28, 150, 109);
+            border: 1px solid aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <a onclick="mostrarSaludo()" href="#">Ir a Google</a>
+    <form>
+        <div>
+            <input type="text" />
+            <input type="password" />
+        </div>
+        <fieldset>
+            <input type="radio" name="uno" id="seat" /> <label for="seat">Seat</label>
+            <input type="radio" name="uno" id="renault" /> <label for="renault">Renault</label>
+            <input type="radio" name="uno" id="fiat" /> <label for="fiat">Fiat</label>
+            <input type="radio" name="uno" id="mazda" /> <label for="mazda">Mazda</label>
+        </fieldset>
+        <fieldset>
+            <input type="checkbox" name="dos" id="peras" /> <label for="peras">Peras</label>
+            <input type="checkbox" name="dos" id="manzanas" /> <label for="manzanas">Manzanas</label>
+            <input type="checkbox" name="dos" id="piñas" /> <label for="piñas">Piñas</label>
+            <input type="checkbox" name="dos" id="platanos" /> <label for="platanos">Plátanos</label>
+        </fieldset>
+        <fieldset>
+            <input type="date" />
+        </fieldset>
+        <input type="reset" />
+        <input type="submit" value="Enviar los datos ya! <img src='signs.svg' />" />
+        <button type="button">Enviar <img src="signs.svg" alt="icono estrella" /></button>
+    </form>
+    
+    <script>
+        function mostrarSaludo() {
+            window.alert('hola');
+        }
+    </script>
+</body>
+</html>

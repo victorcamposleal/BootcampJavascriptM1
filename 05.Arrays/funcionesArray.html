@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones de arrays</title>
+</head>
+
+<body>
+    <script>
+        // let numeros = [4, 8, 15, 16, 23, 42];
+        // console.log('con for');
+        // for(let i = 0; i < numeros.length; i++) {
+        //     console.log(numeros[i]); // mostrar cada posición
+        // }
+
+        // console.log('con forEach');
+        // // for each en inglés significa "por cada"
+        // // función se va a ejecutar por cada uno de los elementos del array
+        // // y el elemento se le va a pasar como parámetro a la función
+        // numeros.forEach(function(elemento) {
+        //     console.log(elemento);
+        // });
+
+        // let numeros = [4, 8, 15, 16, 23, 42];
+        // let dobles = [];
+        // // for(let i = 0; i < numeros.length; i++) {
+        // //     //dobles[i] = numeros[i] * 2;
+        // //     dobles.push(numeros[i] * 2);
+        // // }
+        // dobles = numeros.map(function(elemento) {
+        //     return elemento * 2;
+        // });
+        // console.log(numeros);
+        // console.log(dobles);
+
+        // let nombres = ['iker', 'jon', 'elena'];
+        // let nombresEnMayusculas = nombres.map(function(elemento) {
+        //     return elemento.toUpperCase();
+        // });
+        // console.log(nombresEnMayusculas);
+
+        // let numeros = [2, 4, 15, 16, 23, 42];
+        // let impares = [];
+        // for(let i = 0; i < numeros.length; i++) {
+        //     if(numeros[i] % 2 !== 0) {
+        //         impares.push(numeros[i]);
+        //     }
+        // }
+        // console.log(impares);
+
+        // let pares = numeros.filter(function(elemento) {
+        //     if(elemento % 2 === 0) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // });
+
+        // console.log(pares);
+
+        let numeros = [2, 4, 15, 16, 23, 42];
+        // let suma = 0;
+        // for(let i = 0; i < numeros.length; i++) {
+        //     //suma = suma + numeros[i];
+        //     suma += numeros[i];
+        // }
+        // console.log(suma);
+
+        let suma = numeros.reduce(function(total, elemento) {
+            total += elemento;
+            return total;
+        });
+        console.log(suma);
+    </script>
+</body>
+
+</html>

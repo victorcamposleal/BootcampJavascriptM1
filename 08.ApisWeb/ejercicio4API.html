@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="starwars" onchange="selector()">
+        <option>selecciona una opcion</option>
+    </select>
+
+    <div></div>
+    <p></p>
+
+    <div id='persons'>
+        <h1>los personajes</h1>
+
+    </div>
+    <div id='citizens'>
+
+    </div>
+    <script>
+
+
+
+        //hacemos un fectch para sacar los planetas
+        fetch('http://swapi.dev/api/planets/')
+            .then(function recogeDatos(datos) {
+
+                return datos.json()
+
+            })
+            .then(function pickDatos(planets) {
+
+                let planetas;
+                for (let i = 0; i < planets.results.length; i++) {
+                    planetas = planets.results[i].name
+                    document.getElementById('starwars').innerHTML += `<option> ${planetas}</option>`
+                }
+            }
+            )
+
+        //UTILIZAMOS el Onchange declarado en el menu selector de planetas y lo progamamos para que al hacer click haga una busqueda en el fetch declarado abajo para saber los residentes de cada planeta
+        let desplegable;
+        function selector() {
+            desplegable = document.getElementById('starwars').value;
+            window.alert(desplegable);
+
+
+
+            //fetch para sacar los planets
+            fetch('http://swapi.dev/api/planets/')
+                .then(function residentes(datas) {
+
+                    return datas.json()
+                })
+                .then(function Dato(resident) {
+
+                    console.log(resident.results[0].residents.length)
+                    // hacemos un for con un if y un for anidadado el prier for con el if busca que lo seleccionado por el usuario coincida con el planeta de la api desplegable es el valor selecccionado y el segundo for se usa para que una vesz el planeta coincida con el valor del desplegable busque los personajes y los despliegue
+                    let citizens;
+//en el primer for recorre todos los planetas
+                    for (let i = 0; i < resident.results.length; i++) {
+                        if (desplegable === resident.results[i].name) {
+                            ///resident.results[i].residents.length recorre el largo de los residentes del pais selecccionado
+                            for (let j = 0; j < resident.results[i].residents.length; j++) {
+                                console.log(resident.results[i].residents[j])
+                                citizens = resident.results[i].residents[j];
+                                //document.getElementById('persons').innerHTML += `<p>${citizens} <p>`
+                                  //para vacir y que no se reeescriba  
+                                    document.getElementById('persons').innerHTML="";
+                                fetch(`${citizens}`)
+                                    .then(function citizenss(lolo) {
+                                        return lolo.json()
+                                    })
+                                    .then(function citizen(lolos) {
+                                        console.log(lolos.name)
+                                        document.getElementById('persons').innerHTML +=`<p>${lolos.name} <p>`
+                                    })
+                            }
+                        }
+                    }
+                }
+
+                )
+        }
+
+
+
+
+
+
+
+
+
+
+// } )}
+
+
+
+// <select id="papeleria">
+//         <option value="boligrafo negro"></option>
+//         <option value="boligrafo rojo"></option>
+//         <option value="boligrafo azul"></option>
+//         <option value="boligrafo verde" ></option>
+//     </select>
+
+//     <button onclick="mostrarBoligrafo()">Click</button>
+
+//     <script>
+//         function mostrarBoligrafo(){
+//             let desplegable = document.getElementById('papeleria');
+//             window.alert(desplegable.value);
+//         }
+
+
+
+    </script>
+</body>
+
+</html>

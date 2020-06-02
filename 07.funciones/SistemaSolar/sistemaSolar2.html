@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<header>
+<h1>Selector de Planetas</h1>
+
+</header>
+
+<main>
+
+<div id="inputUno">
+    <p><input type="text" placeholder="introduce planeta" id="planetaUno"></p>
+    <p><button onclick="planetOne()">Descripcion Planeta</button></p>
+    <p id="photoPlanet"></p>
+    <p id="temperatura"></p>
+</div>
+
+<div id="inputDos" >
+    <p><input type="text" placeholder="introduce planeta" id="planetaDos"></p>
+    <p><button onclick="planetTwo()">Descripcion Planeta</button></p>
+     <p id="photoPlanetDos"></p>
+    <p id="temperaturaDos"></p>
+</div>
+
+
+<div id="inputTres">
+ 
+    <p><input type="text" placeholder="introduce planeta" id="planetTres"></p>
+    <p><button onclick="planetThree()">Descripcion Planeta</button></p>
+    <p id="photoPlanetTres"></p>
+    <p id="temperaturaTres"></p>
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+let sistemaSolar = [
+
+{
+    nombre: 'mercurio',
+    color: 'grey',
+    temperatura: 350,
+    imagen: 'https://www.astromia.com/fotosolar/fotos/planetamercurio.jpg'
+
+},
+{
+    nombre: 'venus',
+    color: 'white',
+    temperatura: 460,
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/220px-Venus-real_color.jpg'
+
+},
+{
+    nombre: 'tierra',
+    color: 'purple',
+    temperatura: 14,
+    imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a0ab2a75bafe87f4d3f9a63/acaba-tiempo_0.jpg'
+},
+{
+    nombre: 'marte',
+    color: 'red',
+    temperatura: -46,
+    imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365b6b34099b0279c8fb2e/slide-marte.jpg'
+},
+{
+    nombre: 'jupiter',
+    color: 'brown',
+    temperatura: -121,
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jupiter_by_Cassini-Huygens.jpg/280px-Jupiter_by_Cassini-Huygens.jpg'
+},
+{
+    nombre: 'saturno',
+    color: 'yellow',
+    temperatura: -130,
+    imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/558d2b15010e26221b57df75/saturno.jpg'
+},
+{
+    nombre: 'urano',
+    color: 'blue',
+    temperatura: -205,
+    imagen: 'http://www.manzanares.es/v2/sites/paseo/img/urano/urano1.jpg'
+},
+{
+    nombre: 'neptuno',
+    color: 'pink',
+    temperatura: -220,
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/280px-Neptune_Full.jpg'
+},
+{
+    nombre: 'pluton',
+    color: 'grey',
+    temperatura: -229,
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nh-pluto-in-true-color_2x_JPEG.jpg/1200px-Nh-pluto-in-true-color_2x_JPEG.jpg'
+}
+
+];
+
+
+let planets;
+let planets2;
+let planets3;
+
+
+checking()
+
+
+
+function planetOne() {
+planets=document.getElementById("planetaUno").value
+checking()
+for (let i= 0; i< sistemaSolar.length;i=i+1) {
+if (sistemaSolar[i].nombre===planets) {
+    document.getElementById("photoPlanet").innerHTML=`<img src="${(sistemaSolar[i].imagen)}"/>`
+   document.getElementById("temperatura").innerHTML=`<p>la temperatura es de ${(sistemaSolar[i].temperatura)}</p> `
+   document.getElementById("inputUno").style.backgroundColor=`${(sistemaSolar[i].color)}`
+checking()
+    
+}
+}
+}
+ 
+
+
+function planetTwo() {
+ planets2=document.getElementById("planetaDos").value
+ checking()
+ for (let i= 0; i< sistemaSolar.length;i=i+1) {
+ if (sistemaSolar[i].nombre===planets2) {
+document.getElementById("photoPlanetDos").innerHTML=`<img src="${(sistemaSolar[i].imagen)}"/>`
+ document.getElementById("temperaturaDos").innerHTML=`<p>la temperatura es de ${(sistemaSolar[i].temperatura)}</p> `
+ document.getElementById("inputDos").style.backgroundColor=`${(sistemaSolar[i].color)}`
+ checking()
+ } }}
+ 
+
+ 
+function planetThree() {
+ planets3=document.getElementById("planetTres").value
+ checking()
+ for (let i= 0; i< sistemaSolar.length;i=i+1) {
+ if (sistemaSolar[i].nombre===planets3) {
+document.getElementById("photoPlanetTres").innerHTML=`<img src="${(sistemaSolar[i].imagen)}"/>`
+ document.getElementById("temperaturaTres").innerHTML=`<p>la temperatura es de ${(sistemaSolar[i].temperatura)}</p> `
+ document.getElementById("inputTres").style.backgroundColor=`${(sistemaSolar[i].color)}`
+ checking()
+ } }}
+
+
+ function checking() {
+
+if (planets===planets2 && planets===planets3) {
+    document.getElementById("temperatura").innerHTML=`<p>los planetas no se pueden repetir</p> `
+    document.getElementById("inputUno").style.backgroundColor=`seagreen`
+    window.alert('los planetas no se pueden repetur')
+    document.getElementById("photoPlanet").innerHTML=`<img src="https://images-na.ssl-images-amazon.com/images/I/61uBryXZTXL._AC_SL1000_.jpg"/>`
+    
+}
+if (planets3===planets2 && planets===planets2) {
+    document.getElementById("temperaturaDos").innerHTML=`<p>los planetas no se pueden repetir</p> `
+    window.alert('los planetas no se pueden repetur')
+    document.getElementById("inputDos").style.backgroundColor=`seagreen`
+    document.getElementById("photoPlanetDos").innerHTML=`<img src="https://images-na.ssl-images-amazon.com/images/I/61uBryXZTXL._AC_SL1000_.jpg"/>`
+}
+if (planets3===planets && planets2===planets3) {
+    document.getElementById("temperaturaTres").innerHTML=`<p>los planetas no se pueden repetir</p> `
+    window.alert('los planetas no se pueden repetur')
+    document.getElementById("inputTres").style.backgroundColor=`seagreen`
+    document.getElementById("photoPlanetTres").innerHTML=`<img src="https://filmdaily.co/wp-content/uploads/2018/06/rick-and-morty-screaming-sun-1024x475.jpg"/>`
+}
+}
+
+////Pedir al usuario tres nombres de planetas del Sistema Solar. Con el objeto Sistema Solar, muestra los datos de los tres planetas elegidos. Asegúrate de que los nombres introducidos existen (y coinciden con las claves del objeto) y de que el usuario no introduce valores repetidos.
+//Los 3 planetas deberán aparecer en el navegador. Los tres estarán colocados uno junto al otro, alineados horizontalmente.
+///Arriba del todo de la caja de cada planeta aparecerá el nombre, luego la imagen y después las características (color y temperatura).
+////Añade un botón a cada planeta: al hacer click se cambiará el color de fondo de esa tarjeta por el color de ese planeta.
+
+
+    </script>
+</body>
+</html>

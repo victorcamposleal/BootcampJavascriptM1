@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas</title>
+</head>
+
+<body>
+    <input type="text" id="pelicula" />
+    <button onclick="guardarPelicula()">
+        Añadir película
+    </button>
+    <ul id="peliculas"></ul>
+
+    <script>
+        // obtenemos el valor guardado en el almacenamiento local
+        // con la clave 'listado' y lo convertimos en JavaScript
+        // desde JSON con el método JSON.parse() y lo guardamos
+        // en la variable listado (un array)
+        let listado = JSON.parse(localStorage.getItem('listado'));
+
+        // si el listado no existe en el almacenamiento local, nos
+        // devolverá un valor nulo, en ese caso ponemos en la
+        // variable listado un array vacío
+        if (listado === null) {
+            listado = [];
+        }
+
+        mostrarPeliculas();
+
+        function guardarPelicula() {
+            // obtenemos el valor de la caja de input
+            let titulo = document.getElementById('pelicula').value;
+            window.alert(titulo);
+            // añadimos el título introducido al array
+            listado.push(titulo);
+
+            // Convertimos el array en una cadena de texto de JSON
+            let listadoEnJson = JSON.stringify(listado);
+            // y la introducimos en el almacenamiento local (local storage)
+            // con la clave 'listado'
+            localStorage.setItem('listado', listadoEnJson);
+
+            //// está línea de código haría lo mismo que las dos anteriores
+            //localStorage.setItem('listado', JSON.stringify(listado));
+
+            mostrarPeliculas();
+
+        }
+
+        function mostrarPeliculas() {
+            // Vaciamos el contenido del <ul> con id peliculas
+            document.getElementById('peliculas').innerHTML = '';
+            // Añadimos cada uno de los elementos del array listado como un <li> dentro del <ul>
+            for (let i = 0; i < listado.length; i++) {
+                document.getElementById('peliculas').innerHTML += `<li>${listado[i]}</li>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

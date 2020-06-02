@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* posicionamos el div de manera relativa. podemos darle propiedades 'top','bottom','left' o right para desplazar el elemento por la página. si no le damos ningún valor de esos, el elemento mantendrá su posición inicial */
+        #relative {
+            position: relative;
+            height: 100px;
+            width: 400px;
+            background-color: cadetblue;
+        }
+
+        /* un div posicionado de manera absoluta. podemos darle propiedades 'top','bottom','left' o 'right' para desplazar el elemento respecto al elemento padre con position:relative más cercano. si no existe ninguno, se posicionará respecto al body del HTML. en este caso, lo hemos posicionado 0 píxeles desde arriba */
+        #absolute {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: darkslategrey;
+            top: 0;
+        }
+
+        /* un elemento con posición estática. es la posición por defecto de los elementos */
+        #static {
+            position: relative;
+            background-color: dimgrey;
+            height: 700px;
+            width: 500px;
+            top: 0;
+        }
+
+        /* un elemento con posición fija. es parecido al position:absolute en el sentido de que se posiciona respecto al body del HTML y pierde el espacio que ocupaba inicialmente. además, una vez posicionado, siempre va a ocupar la misma posición, aunque hagamos scroll en la página */
+        #fixed {
+            position: fixed;
+            width: 70px;
+            height: 30px;
+            background-color: black;
+            bottom: 25px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="static"></div>
+    <div id="relative">
+        <div id="absolute"></div>
+    </div>
+
+    <div id="fixed"></div>
+
+
+    <!-- una tabla se define por la etiqueta <table>. iremos construyéndola fila a fila utilizando la etiqueta <tr> (table row). dentro de cada etiqueta <tr> pondremos tantas etiquetas <td> (table data) como celdas queramos que tenga. dentro de las etiquetas <td> pondremos el código HTML que nos interese -->
+    <table>
+        <tr>
+            <td>
+                <p>Primera celda</p>
+            </td>
+            <td>
+                <p>Segunda celda</p>
+            </td>
+            <td>
+                <p>Tercera celda</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Cuarta celda</td>
+            <td>Quinta celda</td>
+            <td>Sexta celda</td>
+        </tr>
+    </table>
+
+
+    <!-- la etiqueta <form> es un modo de mandar información al servidor. en su atributo "action" especificamos la url a la que queremos que nos mande la información, por lo que nos redirige a esa página (o la recarga, si la url definida es la de la página en la que estamos). el atributo "method" lo usamos para especificar cómo se manda la información: GET envía la información en la URL, por lo que es más accesible (y desprotegida), pero es más limitada la información que podemos mandar. POST envía la información de manera más protegida y nos permite envíar más variedad de información. -->
+    <form action="index.html" method="GET">
+        <!-- ponemos tantos input como queramos. para poder identificar la información que enviamos al servidor, tenemos que especificar un atributo "name" a cada input: será la clave o identificador de la información que introduce el usuario en ese input -->
+        <input type="text" name="nombre" placeholder="Escribe tu nombre">
+        <input type="password" name="password" placeholder="Escribe tu contraseña" />
+        <!-- creamos un botón de tipo "submit". esto hará que el formulario se envíe. -->
+        <button type="submit">Click</button>
+    </form>
+
+    <!-- checkbox y radio son tipos de input algo diferentes al resto. sirven para que el usuario seleccione una o varias opciones. la principal diferencia entre los dos tipos es que checkbox permite seleccionar múltiples opciones, mientras que radio solo permite una única opción. 
+    otra diferencia respecto a otros inputs es que, como el usuario no va a introducir información, tenemos que darles el valor que queremos que tenga cada etiqueta. ese valor, junto con el atributo "name", será lo que se envíe al servidor. 
+    la etiqueta <label> es una etiqueta muy útil cuando trabajamos con estos <input>, ya que nos dan la posibilidad de, no solo indicar al usuario qué valor tiene cada input, si no también nos permite hacer click sobre ellas para seleccionar el <input> correspondiente. para ello, en la etiqueta label escribimos un atributo "for" y en el input un atributo "id": ambos atributos deberán tener el mismo valor para que estén unidos correctamente
+    -->
+    <input type="checkbox" name="comida-favorita" />
+    <input type="checkbox" name="comida-favorita" />
+    <input type="radio" name="mayor-edad" value="menor" id="menor-edad"/>
+    <label for="menor-edad">Menor de edad</label>
+    <input type="radio" name="mayor-edad" value="mayor" id="mayor-edad"/>
+    <label for="mayor-edad">Mayor de edad</label>
+
+
+<!-- textarea es una caja de texto más grande que un input. podemos ponerla dentro de un formulario para que el usuario escriba más texto (o de manera más cómoda, ya que está todo a la vista) que en un input normal. podemos definir su tamaño por defecto mediante los atributos "cols" (columnas) y "rows" (filas), aunque en el navegador pordemos redimensionarlo. si queremos que no se pueda redimensionar, añadiremos la regla CSS "resize: none" -->
+    <textarea name="" id="" cols="50" rows="10"></textarea>
+
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick&Morty</title>
+<style>
+
+*{
+    box-sizing: border-box;
+}
+    
+    #personas{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .foto{
+        
+        display: flex;
+        flex-direction: row;
+        border-bottom: black solid;
+        border-radius: 0px;
+        justify-content:space-between;
+        margin-bottom: 10px;
+    }
+    
+    
+img{
+ 
+width: 30%;
+ 
+
+}
+
+    .text{
+  
+    bottom: 10px;
+    color:black;
+    text-align: center;
+    
+    }
+
+
+
+    @media (min-width: 600px) {
+     #personas{
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+
+     }
+    
+     .foto{
+
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        border-bottom:none;
+        margin: 20px;
+
+
+
+        
+        
+        
+    }
+    
+    .text{
+        position:absolute;
+        bottom: 10px;
+        color: white;
+        background-color: rgb(0,0,0,0.2);
+        text-align: center;
+        width:100% ;
+        
+    }
+    
+    img{
+        width:100% ;
+    }
+    
+}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+    
+<div id="personas">
+
+
+
+</div>
+
+    <script>
+let personajes;
+        fetch('https://rickandmortyapi.com/api/character/')
+
+        .then(function CogeData(data){
+        
+       return (data.json());
+            
+        })
+        .then(function pickData(datos) {
+            console.log(datos.results)
+            personajes=datos.results;
+            let persons="";
+           for (let i = 0; i < personajes.length; i++) {
+                
+               persons+=`<div class="foto">
+               <img src="${personajes[i].image}" alt="">
+               <div class="text">
+               <h1>${personajes[i].name}</h1>
+              <p>${personajes[i].status}</p>
+             </div>
+              </div>`
+                
+           }
+ document.getElementById("personas").innerHTML=persons
+            
+        })
+
+
+    </script>
+</body>
+</html>

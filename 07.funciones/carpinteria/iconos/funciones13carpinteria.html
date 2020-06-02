@@ -41,15 +41,16 @@
     
             <img src="tronco.svg" alt="brocha">
             <p> 2 €/Ud</p>
-            <button onclick="añadir()">añadir</button>
-            <button onclick="quitar()">quitar</button>
+            <button onclick="agregarTronco()">añadir</button>
+            <button onclick="quitarTronco()">quitar</button>
         </div>
 
-      <!--  <div id="martillo">
+      <div id="martillo">
             <img src="martillo.svg" alt="brocha">
-            <button onclick="añadir()">añadir</button>
-            <button onclick="quitar()">quitar</button>
-        </div> -->
+            <p> 6 €/Ud</p>
+            <button onclick="agregarMartillo()">añadir</button>
+            <button onclick="quitarMartillo()">quitar</button>
+        </div> 
 
 
     </main>
@@ -61,7 +62,7 @@
 
         <div id="cestaBrocha">
             <p id="totalUnidades"></p>
-            <p id="totalPrecio"></p>
+            <p id="totalPrecioBrocha"></p>
             <p id="imagenBrocha"></p>
 
         </div>
@@ -73,29 +74,62 @@
             <p id="imagenLlave"></p>
 
         </div>
+
+
+        <div id="cestaTronco">
+            <p id="totalUnidadesTronco"></p>
+            <p id="totalPrecioTronco"></p>
+            <p id="imagenTronco"></p>
+
+        </div>
+
+        <div id="cestaMartillo">
+            <p id="totalUnidadesMartillo"></p>
+            <p id="totalPrecioMartillo"></p>
+            <p id="imagenMartillo"></p>
+
+        </div>
+
+
+        <div id="PrecioTotal">
+            <h1>Precio Total</h1>
+            <p id="totalPrecio"></p>
+         
+
+        </div>
+
+
+
     </footer>
     <script>
 
-
-
+//BROCHA
+let total;
         //declaramos la variable valor fuera de la funcion para que cuando coga un valor en la funcion no sea cero de nuevo y podamos utilizarla en ortras fuciones 
         //declaramos el precio fuera de la funcion
         let valor = 0;
         let mostrar = ``;
         let precioBrocha = 3;
+        let unidadMartillo = 0;
+        let precioMartillo= 6;
+        let unidadLlave = 0;
+        let precioLlave = 5;
+        let unidadTronco = 0;
+        let precioTronco= 2;
+
         // comentatio: en la funcion agregarBorcha cada vez que hacemos click se agrega una brocha en forma de texto y numerico,se calcula el precio en base a el numemro en base a el numero dde unidades, 
         function agregarBrocha() {
             valor = valor + 1;
             //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
             if (valor < 0 || valor === 0) {
                 document.getElementById('totalUnidades').innerHTML = `<p>brocha:0</p>`
-                document.getElementById('totalPrecio').innerHTML = `  <p>total:0€</p>`
+                document.getElementById('totalPrecioBrocha').innerHTML = `  <p>total:0€</p>`
 
             }
             //comentario:  si el valor es mayor a 
             else if (valor > 0) {
                 document.getElementById('totalUnidades').innerHTML = `<p>brocha:${valor}</p>`
-                document.getElementById('totalPrecio').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
+                document.getElementById('totalPrecioBrocha').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
                 //document.getElementById('imagenBrocha').innerHTML+=`<img src="brocha.svg" alt="brocha">`
                 // mostrar=``;
                 //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
@@ -105,14 +139,14 @@
                 for (let i = 0; i < valor; i++) {
                     document.getElementById('imagenBrocha').innerHTML += `<img src="brocha.svg" alt="brocha">`
                 }
-                //mostrar=mostrar+`<img src="brocha.svg" alt="brocha">`
-
+        
             }
+              mostrarTotal()
 
             ///document.getElementById('imagenBrocha').innerHTML=mostrar
 
         }
-
+     
         // comentatio: en la funcion quitarBrcha cada vez que hacemos click se quita una brocha en forma de texto y numerico,se calcula el precio en base a el numemro en base a el numero dde unidades, 
         function quitarBrocha() {
             valor = valor - 1;
@@ -120,11 +154,11 @@
             if (valor < 0 || valor === 0) {
                 document.getElementById('totalUnidades').innerHTML = `<p>brocha:0</p>`
                 document.getElementById('imagenBrocha').innerHTML = ``;
-                document.getElementById('totalPrecio').innerHTML = `  <p>total:0€</p>`
+                document.getElementById('totalPrecioBrocha').innerHTML = `  <p>total:0€</p>`
             }
             else if (valor > 0) {
                 document.getElementById('totalUnidades').innerHTML = `<p>brocha:${valor}</p>`
-                document.getElementById('totalPrecio').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
+                document.getElementById('totalPrecioBrocha').innerHTML = `  <p>total:${precioBrocha * valor}€</p>`
                 //mostrar=``;
                 //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
                 document.getElementById('imagenBrocha').innerHTML = ``;
@@ -133,11 +167,14 @@
                     document.getElementById('imagenBrocha').innerHTML += `<img src="brocha.svg" alt="brocha">`
                 }
             }
+                mostrarTotal()
             //document.getElementById('imagenBrocha').innerHTML=mostrar
         }
-
-        let unidadLlave = 0;
-        let precioLlave = 5;
+        //comentario: ponemos la funcion para que al cargar la pagina me salga funcion en ceros 
+        agregarBrocha();
+        quitarBrocha();
+//LLAVE
+      
         function agregarLlave() {
             unidadLlave = unidadLlave + 1;
             //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
@@ -156,6 +193,7 @@
                     document.getElementById('imagenLlave').innerHTML += ` <img src="llave.svg" alt="brocha">`
                 }
             }
+               mostrarTotal()
         }
             function quitarLlave() {
                 unidadLlave = unidadLlave - 1;
@@ -175,11 +213,116 @@
                         document.getElementById('imagenLlave').innerHTML += ` <img src="llave.svg" alt="brocha">`
                     }
                 }
+                  mostrarTotal()
             }
-        
+         //comentario: ponemos la funcion para que al cargar la pagina me salga funcion en ceros 
+        agregarLlave();
+        quitarLlave();
+//TRONCO
+      
+        function agregarTronco() {
+            unidadTronco = unidadTronco + 1;
+            //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+            if (unidadTronco < 0 || unidadTronco === 0) {
+                document.getElementById('totalUnidadesTronco').innerHTML = `<p>Tronco:0</p>`
+                document.getElementById('totalPrecioTronco').innerHTML = `  <p>Total:0€</p>`
+            }
+            //comentario:  si el valor es mayor a 
+            else if (unidadTronco > 0) {
+                document.getElementById('totalUnidadesTronco').innerHTML = ` <p>Tronco:${unidadTronco}</p>`
+                document.getElementById('totalPrecioTronco').innerHTML = `  <p>total:${precioTronco * unidadTronco}€</p>`
+                //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                document.getElementById('imagenTronco').innerHTML = ``;
+                //comentario:bucle for para imprimir imagenes
+                for (let i = 0; i < unidadTronco; i++) {
+                    document.getElementById('imagenTronco').innerHTML += `<img src="tronco.svg" alt="brocha">`
+                }
+            }
+              mostrarTotal()
+        }
+            function quitarTronco() {
+                unidadTronco = unidadTronco - 1;
+                //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+                if (unidadTronco < 0 || unidadTronco === 0) {
+                    document.getElementById('totalUnidadesTronco').innerHTML = `<p>Llave:0</p>`
+                    document.getElementById('imagenTronco').innerHTML = ``;
+                    document.getElementById('totalPrecioTronco').innerHTML = ` <p>total:0€</p>`
+                }
+                else if (unidadTronco > 0) {
+                    document.getElementById('totalUnidadesTronco').innerHTML = ` <p>Llave:${unidadTronco}</p>`
+                    document.getElementById('totalPrecioTronco').innerHTML = `  <p>total:${precioTronco * unidadTronco}€</p>`
+                    //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                    document.getElementById('imagenTronco').innerHTML = ``;
+                    //comentario:bucle for para imprimir imagenes
+                    for (let i = 0; i < unidadTronco; i++) {
+                        document.getElementById('imagenTronco').innerHTML += ` <img src="tronco.svg" alt="brocha">`
+                    }
+                }
+                mostrarTotal()
+            }
+
+  //comentario: ponemos la funcion para que al cargar la pagina me salga funcion en ceros 
+quitarTronco();
+agregarTronco();
+//MARTILLO
+       
+        function agregarMartillo() {
+            unidadMartillo = unidadMartillo + 1;
+            //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+            if (unidadMartillo < 0 || unidadMartillo === 0) {
+                document.getElementById('totalUnidadesMartillo').innerHTML = `<p>Martillo:0</p>`
+                document.getElementById('totalPrecioMartillo').innerHTML = `  <p>Total:0€</p>`
+            }
+            //comentario:  si el valor es mayor a 
+            else if (unidadMartillo > 0) {
+                document.getElementById('totalUnidadesMartillo').innerHTML = ` <p>Martillo:${unidadMartillo}</p>`
+                document.getElementById('totalPrecioMartillo').innerHTML = `  <p>total:${precioMartillo * unidadMartillo}€</p>`
+                //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                document.getElementById('imagenMartillo').innerHTML = ``;
+                //comentario:bucle for para imprimir imagenes
+                for (let i = 0; i < unidadMartillo; i++) {
+                    document.getElementById('imagenMartillo').innerHTML += `  <img src="martillo.svg" alt="brocha">`
+                }
+            }
+              mostrarTotal()
+        }
+        function quitarMartillo() {
+                unidadMartillo = unidadMartillo - 1;
+                //comentario: condicional para medir si e valor es menor o igual a cero que me salga cero y las imagenes no se me repitan
+                if (unidadMartillo < 0 || unidadMartillo === 0) {
+                    document.getElementById('totalUnidadesMartillo').innerHTML = `<p>Llave:0</p>`
+                    document.getElementById('imagenMartillo').innerHTML = ``;
+                    document.getElementById('totalPrecioMartillo').innerHTML = ` <p>total:0€</p>`
+                }
+                else if (unidadMartillo > 0) {
+                    document.getElementById('totalUnidadesMartillo').innerHTML = ` <p>Llave:${unidadMartillo}</p>`
+                    document.getElementById('totalPrecioMartillo').innerHTML = `  <p>total:${precioMartillo * unidadMartillo}€</p>`
+                    //comentario: reiniciamos la imagen antes de entrar en el bucle for para que me imprima en el bucle el numero de imagnes depeindiendo el Valor
+                    document.getElementById('imagenMartillo').innerHTML = ``;
+                    //comentario:bucle for para imprimir imagenes
+                    for (let i = 0; i < unidadMartillo; i++) {
+                        document.getElementById('imagenMartillo').innerHTML += `   <img src="martillo.svg" alt="brocha">`
+                    }
+                }
+                mostrarTotal()
+            }
+  //comentario: ponemos la funcion para que al cargar la pagina me salga funcion en ceros 
+            quitarMartillo();
+            agregarMartillo();
 
 
 
+
+ function mostrarTotal(){
+
+total=(precioBrocha * valor)+(precioMartillo * unidadMartillo)+ (precioTronco * unidadTronco)+(precioLlave * unidadLlave)
+
+if (0>total) {
+total=0;    
+}
+document.getElementById('totalPrecio').innerHTML = `<p> Precio Total:${total}</p>`
+ }
+mostrarTotal();
 
 // Vamos a crear una página web para la Carpintería Mazarredo. Después le vamos a mostrar cuatro divs en los que tendremos como título “brocha”, “llave”, “martillo” y “tronco” junto con el precio de cada uno y un botón en el que hará click para añadir una unidad del producto a la cesta y otro para quitar una unidad del producto a la cesta. Cada vez que hagamos click en uno de los botones (8 botones en total, 2 para añadir/restar una brocha, 2 para añadir/restar una llave, 2 para añadir/restar un martillo y 2 para añadir/restar un tronco) se mostrará en la cesta un mensaje con el texto
 // 	Martillos: 7

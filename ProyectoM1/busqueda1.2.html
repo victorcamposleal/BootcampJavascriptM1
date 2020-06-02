@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Buscador</title>
+    
+</head>
+
+<body>
+<header>
+    <div class="menuHead">
+    <div class="logo">
+    <img src="UFO.svg" alt="">
+    <p> <strong> El Alien</strong></p>
+    </div>
+        <ul class="menu" >
+            <li><a href="Acbout&Results.html">Analisis y Favotios</a></li>
+            <li><a href="inicio.html">Inicio</a></li>
+        </ul>
+    </div>
+
+    <a id="botonBusqueda" href="Acbout&Results.html">Da clcik y ve tus favoritos</a>
+<div class=headSearch>
+
+    <h1>
+        Busqueda
+    </h1>
+    <ul>
+        <li>Haz tu Busqueda</li>
+        <li>elige una profesión y gaurda tu favorita</li>
+        <li>elige tu ciudad favorita y guardala</li> 
+    </ul> 
+</div>    
+    
+       
+</header>
+   
+    <main>
+        
+        <h1>
+            Elige un País y una Ciudad
+        </h1>
+        
+    
+<div class="buscadores">
+    <div>
+        
+        <select id="listadoPaises" onchange="selectedCountry()">
+            <option>elige un país</option>
+        </select>
+        <h2>Elige un Trabajo</h2>
+        <select id="listadoTrabajos" onchange="selectedJob()">
+            <option>elige un Trabajo</option>
+        </select>
+        <div id="trabajoElegido">
+        </div>
+    </div>
+    <div class="separaBuscadors">
+        <select id="listadoCiudades" onchange="selectedCity()">
+            <option>elige una ciudad</option>
+        </select>
+        <div id="photo"> </div>
+        <div id="renta"></div>
+        <div id="ciudad"></div>
+    </div>
+</div>
+</main>
+
+<footer>
+    <div class="footer">
+        
+        <div class="footerDer">
+
+<div class="listos">
+<h5>Mundos</h5>
+<ul>
+ <li>Eventos</li>
+<li>Noticias</li>
+<li>Colaboradores</li>
+ </ul>
+</div> 
+       
+<div class="listos">
+<h5>Información</h5>
+<ul>
+<li>Api</li>
+<li>Tips</li>
+<li>blog</li>
+</ul>
+</div> 
+<div class="listos">
+<h5>Atención a clientes</h5>
+<ul>
+<li>oficinas</li>
+<li>agencia</li>
+<li>viajes</li>
+</ul>
+</div> 
+</div>
+<div class="footerizq">
+   
+<div class="logo">
+    <img src="UFO.svg" alt="">
+    <p> <strong> El Alien</strong></p>
+    </div>
+    
+    
+    <div class="foto">
+        <img src="facebook.svg" alt="">
+        <img src="insta.svg" alt="">
+        <img src="twitter.svg" alt="">
+        <img src="reddit.svg" alt="">
+        
+    </div>
+    
+</div>
+</div>
+
+</footer>
+<script>
+
+        let country;
+        //havemos la conversion del api de teleport para elegir los paies
+        fetch('https://api.teleport.org/api/countries/')
+            .then(function data1pais(datos) {
+
+                return datos.json()
+
+            })
+
+            .then(function pais(paises) {
+                // hacemos este for para mostrar en un desplegado los ddiferentes paises que tenemos en la lista
+                //console.log(paises._links['country:items'][0].name);
+                for (let i = 0; i < paises._links['country:items'].length; i++) {
+                    document.getElementById('listadoPaises').innerHTML += `<option>${paises._links['country:items'][i].name}</option>`
+                }
+                //
+                country = paises
+            })
+
+        //declaramos la variable que tomara el pais elegido
+        let pais;
+        //declaramos la variable a que cogera el valor del url para poder hacer un fetch y parsearlos
+        let valorPais;
+        // declaramos otra varaiable donde cogre la url de salarios y trbajos 
+        let salarios;
+
+        // si hay algo anteriormente caragdo se mostrara
+        function selectedCountry() {
+
+            //utilizamos el punto value para cooger el valor del pais, esto esta relacionado con el id y la funcion de onchange
+            pais = document.getElementById("listadoPaises").value
+
+            //window alert 
+            //window.alert(`${pais}`) 
+            //document.getElementById('paisElegido').innerHTML="";  
+            for (let i = 0; i < country._links['country:items'].length; i++) {
+                //hacemos la comparativa de el pais elegido con los paises
+                if (pais === country._links['country:items'][i].name) {
+                    valorPais = country._links['country:items'][i].href
+                    //document.getElementById('paisElegido').innerHTML+=`<option>${country._links['country:items'][i].href}</option>`
+                }
+
+            }
+            // del url que es el pais que sacamos del for cogemos el valor del pais
+            fetch(`${valorPais}`)
+                .then(function vaLorP(valorP) {
+                    return valorP.json();
+
+                })
+                //Cogemos el url de salarios y trabajo  del pais elegido y  y lo parseamos con un fetch
+                .then(function vaLorC(valorc) {
+
+                    salarios = valorc._links['country:salaries'].href
+                    //console.log(salarios)
+                    // console.log(salarios)
+                    fetch(salarios)
+                        .then(function vaLorS(valors) {
+
+                            return valors.json();
+                        }
+
+                        )
+                        //cogemos el fetch de salarios y haremos otro desplegable de los de los trabajos
+                        .then(function salario(pago) {
+
+                            for (let i = 0; i < pago.salaries.length; i++) {
+                                //console.log(pago.salaries[i]['job'])
+                                document.getElementById('listadoTrabajos').innerHTML += `<option>${pago.salaries[i]['job'].title}</option>`
+
+                                //  document.getElementById('paisElegido').innerHTML+=`<div><h3>${pago.salaries[i]['job'].title}</h3>
+                                //    <p>salario en dolares:${ Math.round(pago.salaries[i]['salary_percentiles'].percentile_25)}$</p>
+                                //      <p>salario en dolares:${Math.round(pago.salaries[i]['salary_percentiles'].percentile_50)}$</p>
+                                //      <p>salario en dolares:${Math.round(pago.salaries[i]['salary_percentiles'].percentile_75)}$</p>         <div>`
+
+                            }
+
+
+                            selectedJob()
+
+                        })
+                }
+                )
+        }
+        //funcion para seleccionar los trabajos seleccionados 
+        let pickedJob;
+        function selectedJob() {
+            document.getElementById('trabajoElegido').innerHTML += "";
+            //console.log(document.getElementById("listadoTrabajos").value)
+            pickedJob = document.getElementById("listadoTrabajos").value
+            fetch(salarios)
+                .then(function payment(pagos) {
+                    return pagos.json();
+                })
+                .then(function payment2(payments) {
+                    document.getElementById('trabajoElegido').innerHTML = '';
+                    for (let i = 0; i < payments.salaries.length; i++) {
+                        //  console.log(payments.salaries[i]['job'])
+                        if (pickedJob === payments.salaries[i]['job'].title) {
+                            document.getElementById('trabajoElegido').innerHTML += `<div><h3>${payments.salaries[i]['job'].title}</h3>
+     <p>El 75% tiene un salario Anual en dolares:${ Math.round(payments.salaries[i]['salary_percentiles'].percentile_25)}$</p>
+    <p>El 50% tiene un salario Anual en dolares:${Math.round(payments.salaries[i]['salary_percentiles'].percentile_50)}$</p>
+     <p>El 25% tiene un salario Anual en dolares:${Math.round(payments.salaries[i]['salary_percentiles'].percentile_75)}$</p>
+     <button onclick="guardarFavoritos('En <strong>${pais}</strong> un ${payments.salaries[i]['job'].title}','${Math.round(payments.salaries[i]['salary_percentiles'].percentile_50)}')"> Guarda el trabajo</button>
+              <div>`
+                        }
+                    }
+                })
+
+        }
+        //creaamos un rray para almacenar los trabajos favoritos del usuario
+        let trabajoFavorito;
+        trabajoFavorito = JSON.parse(localStorage.getItem('fav'))
+        if (trabajoFavorito === null) {
+            trabajoFavorito = [];
+        }
+        function guardarFavoritos(Nombretrabajo, salarioMedio) {
+          let ciudad = {
+                nombreTrabajo : Nombretrabajo,
+                salario : salarioMedio
+            }
+            //guardamos los favoritos en la variable
+            trabajoFavorito.push(ciudad)
+            //convertimos los favoritos en formato Json
+            let trabajoFavoritoEnJson = JSON.stringify(trabajoFavorito);
+            // guardamos en lolcal la variable elegida 
+            localStorage.setItem('fav', trabajoFavoritoEnJson)
+        }
+
+        // hacemos un fetch para sacar el nombre de las ciudades posibles a emigrar
+        let ciudades;
+        fetch('https://api.teleport.org/api/urban_areas/')
+            .then(function ciudades(ciudade) {
+
+                return ciudade.json()
+
+            })
+            .then(function city(cities) {
+                ciudades = cities;
+                //en esta parte sacamos el link para poder elegir la imaggen de la ciduad
+                console.log(cities._links["ua:item"][0].name)
+                for (let i = 0; i < cities._links["ua:item"].length; i++) {
+
+
+                    document.getElementById("listadoCiudades").innerHTML += `<option>${cities._links["ua:item"][i].name}</option>`
+
+                }
+            })
+
+        //una vez elegida la ciudad mostramos la foto de la ciudad al usuario
+        let ciudad;
+        let cityChoice
+        let cityDetalles;
+        let cafe;
+        let cerveza;
+        let gimnasio;
+        let menu;
+        let transporte;
+        let rentas = 0;
+        let rentasString;
+        let citizen;
+        let renta1;
+        let renta2;
+        let renta3;
+
+
+
+        function selectedCity() {
+            document.getElementById("renta").innerHTML = "";
+            rentas = 0;
+            rentasString = 0;
+            document.getElementById("renta").innerHTML = "";
+            ciudad = document.getElementById("listadoCiudades").value
+
+            for (let i = 0; i < ciudades._links["ua:item"].length; i++) {
+
+                if (ciudad === ciudades._links["ua:item"][i].name) {
+                    //console.log(ciudades._links["ua:item"][i].href)
+
+                    cityChoice = ciudades._links["ua:item"][i].href
+
+                }
+            }
+            // en este fetch sacaos la imagen de la ciudad
+            fetch(`${cityChoice}images`)
+                .then(function ciudade(cidad) {
+
+                    return cidad.json()
+
+                })
+                .then(function ci(mordor) {
+
+                    console.log(mordor.photos[0].image.web)
+                    document.getElementById("photo").innerHTML = `<img src="${mordor.photos[0].image.web}" alt="">`
+
+                })
+            let hotCity;
+            hotCity = ciudad.toLowerCase()
+
+            //en este fetch se guardan los detalles de las rentas  
+            fetch(`https://api.teleport.org/api/urban_areas/slug:${hotCity}/details/`)
+                .then(function ciudode(cidod) {
+
+                    return cidod.json()      //https://api.teleport.org/api/urban_areas/slug:${ciudad}/details/
+
+                })
+                .then(function co(morder) {
+
+                    cityDetalles = morder;
+                    //document.getElementById("ciudad").innerHTML=`<img src="${mordor.photos[0].image.web}" alt="">`
+                    // console.log( cityDetalles['categories'][3])
+                    // console.log( cityDetalles['categories'][8].id)
+                    //para sacar los costes de interes
+                    for (let i = 0; i < cityDetalles['categories'].length; i++) {
+                        // if (cityDetalles['categories'][i].label === 'Housing') {
+                        //     for (let j = 0; j < 3; j++) {
+                        //         console.log(cityDetalles['categories'][i].data[j].id)
+                        //         console.log(cityDetalles['categories'][i].data[j].currency_dollar_value)
+                        //         rentas = ((rentas + cityDetalles['categories'][i].data[j].currency_dollar_value))
+                        //         rentasString = (rentas / 3);
+                        //         document.getElementById("renta").innerHTML += `<div><p>Medias de Renta de pisos en dolares: <strong>${cityDetalles['categories'][i].data[j].currency_dollar_value}$/mes </strong></p>
+                        //             <button onclick="rentaFavoritos('<strong>${ciudad}</strong>','${rentasString}')"> Guarda la Ciudad</button>
+                        //         </div>`
+
+
+                        //     }
+
+
+                        // }
+
+                        //else { 'esta información estara disponibe proximamente' }
+
+
+                        if (cityDetalles['categories'][i].id === 'COST-OF-LIVING') {
+                            for (let k = 0; k < cityDetalles['categories'][i].data.length; k++) {
+                                // console.log(cityDetalles['categories'][i].data[k].id)
+                                //console.log(cityDetalles['categories'][i].data[k].currency_dollar_value)
+
+
+                                if (cityDetalles['categories'][i].data[k].id === "COST-PUBLIC-TRANSPORT") {
+                                    transporte = cityDetalles['categories'][i].data[k].currency_dollar_value;
+                                    //document.getElementById("ciudad").innerHTML+=`  <div><p> El coste del <strong>transporte Publico</strong>: ${cityDetalles['categories'][i].data[k].currency_dollar_value}$/Mes</p></div>`
+                                }
+
+                                if (cityDetalles['categories'][i].data[k].id === "COST-RESTAURANT-MEAL") {
+                                    menu = cityDetalles['categories'][i].data[k].currency_dollar_value;
+                                    //document.getElementById("ciudad").innerHTML+=`  <div><p> el coste medio de un <strong>Menu</strong> en dolares: ${cityDetalles['categories'][i].data[k].currency_dollar_value}</p></div>`
+                                }
+                                if (cityDetalles['categories'][i].data[k].id === "COST-FITNESS-CLUB") {
+                                    gimnasio = cityDetalles['categories'][i].data[k].currency_dollar_value;
+                                    //document.getElementById("ciudad").innerHTML+=`  <div><p> El coste del <strong>gimnasio</strong> en dolares: ${cityDetalles['categories'][i].data[k].currency_dollar_value}$/Mes</p></div>`
+                                }
+
+                                if (cityDetalles['categories'][i].data[k].id === "COST-IMPORT-BEER") {
+                                    cerveza = cityDetalles['categories'][i].data[k].currency_dollar_value;
+                                    // document.getElementById("ciudad").innerHTML+=`  <div><p> el coste medio de una <strong>Cerveza</strong> en dolares: ${cityDetalles['categories'][i].data[k].currency_dollar_value}$</p></div>`
+                                }
+                                if (cityDetalles['categories'][i].data[k].id === "COST-CAPPUCCINO") {
+
+                                    cafe = cityDetalles['categories'][i].data[k].currency_dollar_value;
+
+                                    //document.getElementById("ciudad").innerHTML+=`  <div><p> El coste de Un <strong>Café</strong> : ${cityDetalles['categories'][i].data[k].currency_dollar_value}$</p></div>`
+                                }
+
+
+
+                            }
+                            // console.log(rentasString)
+                            document.getElementById("ciudad").innerHTML = `<div>                
+ <p> El coste del <strong>transporte Publico</strong> ${transporte}$/Mes</p>
+ <p> el coste medio de un <strong>Menu</strong> en dolares ${menu}$</p>
+  <p> El coste del <strong>Gimnasio</strong> en dolares ${gimnasio}$/Mes</p>
+ <p> El coste de Un <strong>Café</strong> : ${cafe}$</p>
+    <p> el coste medio de una <strong>Cerveza</strong> en dolares: ${cerveza}$</p>
+    <button onclick="cityFavoritos('<strong>${ciudad}</strong>','${Math.round(transporte)}',' ${Math.round(menu)}','${Math.round(gimnasio)}',' ${Math.round(cerveza)}')"> Guarda la Ciudad</button>
+    </div>`
+
+
+                        }
+
+                        //imprimimos los costes de las rentas por ciudad
+                        if (cityDetalles['categories'][i].label === 'Housing') {
+                            for (let j = 0; j < 3; j++) {
+                                console.log(cityDetalles['categories'][i].data[j].id)
+                                console.log(cityDetalles['categories'][i].data[j].currency_dollar_value)
+                                rentas = ((rentas + cityDetalles['categories'][i].data[j].currency_dollar_value))
+                                rentasString = (rentas / 3);
+                                if (cityDetalles['categories'][i].data[j].id === "APARTMENT-RENT-LARGE") {
+
+                                    renta1 = cityDetalles['categories'][i].data[j].currency_dollar_value;
+
+                                    // document.getElementById("renta").innerHTML += `<div><p>Medias de Renta de pisos en dolares: <strong>${cityDetalles['categories'][i].data[j].currency_dollar_value}$/mes </strong></p>
+                                    // </div>`
+                                }
+
+                                if (cityDetalles['categories'][i].data[j].id === "APARTMENT-RENT-MEDIUM") {
+
+
+                                    renta2 = cityDetalles['categories'][i].data[j].currency_dollar_value;
+                                    // document.getElementById("renta").innerHTML += `<div><p>Medias de Renta de pisos en dolares: <strong>${cityDetalles['categories'][i].data[j].currency_dollar_value}$/mes </strong></p>
+                                    //   <button onclick="rentaFavoritos('<strong>${ciudad}</strong>','${cityDetalles['categories'][i].data[j].currency_dollar_value}')"> Guarda la Ciudad</button>
+                                    // </div>`
+                                }
+
+
+                                if (cityDetalles['categories'][i].data[j].id === "APARTMENT-RENT-SMALL") {
+                                    renta3 = cityDetalles['categories'][i].data[j].currency_dollar_value;
+                                    //document.getElementById("renta").innerHTML += `<div><p>Medias de Renta de pisos en dolares: <strong>${cityDetalles['categories'][i].data[j].currency_dollar_value}$/mes </strong></p>
+
+                                    //   </div>`
+                                }
+
+                            }
+                            document.getElementById("renta").innerHTML = `<div>
+                                <p>Medias de Renta de pisos en dolares: <strong>${renta1}$/mes </strong></p>
+                                <p>Medias de Renta de pisos en dolares: <strong>${renta2}$/mes </strong></p>
+                            <p>Medias de Renta de pisos en dolares: <strong>${renta3}$/mes </strong></p>
+                            <button onclick="rentaFavoritos('<strong>${ciudad}</strong>','${Math.round((renta2 + renta3 + renta1) / 3)}')"> Guarda la Ciudad</button>
+                        
+                        </div>`
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        else { 'esta información estara disponibe proximamente' }
+
+
+
+
+
+
+                    }
+
+                })
+
+
+
+
+        }
+        
+        let ciudadFavorito;
+        ciudadFavorito = JSON.parse(localStorage.getItem('favo'))
+        if (ciudadFavorito === null) {
+            ciudadFavorito = [];
+        }
+        function cityFavoritos(ciu, trans, men, gim, cerv) {
+           let detailes
+            detailes = {
+                cities: ciu,
+                transpor:trans, 
+                menues:men,
+                gymi:gim,
+                beer:cerv,
+
+            }
+            //guardamos los favoritos en la variable
+            ciudadFavorito.push(detailes)
+            //convertimos los favoritos en formato Json
+            let ciudadFavoritaEnJson = JSON.stringify(ciudadFavorito);
+            // guardamos en lolcal la variable elegida 
+            localStorage.setItem('favo', ciudadFavoritaEnJson)
+        }
+
+        let rentFavorita;
+        rentFavorita = JSON.parse(localStorage.getItem('favor'))
+        if (rentFavorita === null) {
+            rentFavorita = [];
+        }
+        function rentaFavoritos(ciudad, rent) {
+            //guardamos los favoritos en la variable
+            rentFavorita.push(ciudad, rent)
+            //convertimos los favoritos en formato Json
+            let rentFavoritaEnJson = JSON.stringify(rentFavorita);
+            // guardamos en lolcal la variable elegida 
+            localStorage.setItem('favor', rentFavoritaEnJson)
+        }
+
+
+    //     <button onclick="cityFavoritos('<strong>${ciudad}</strong>','El coste del Transporte:  ${Math.round(transporte)}',' El coste medio de un menu:  ${Math.round(menu)}','El coste medio de un club de Ftiness:  ${Math.round(gimnasio)}','el coste medio de una cerveza:  ${Math.round(cerveza)}')"> Guarda la Ciudad</button>
+    // </div>
+
+    </script>
+</body>
+
+</html>

@@ -26,6 +26,22 @@ img{
     
 }
 
+.menu{
+display: flex;
+flex-direction: column;
+list-style: none;
+}
+
+.menu a{
+
+    border-radius: 30px;
+    background-color:seagreenSS;
+    color:white;
+
+
+
+}
+
 
 
 

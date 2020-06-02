@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a donde va Wally</title>
+<style>
+
+    a{
+        border-radius: 5px;
+        border: style solid;
+        background-color: cornflowerblue;
+       text-decoration: none;
+       color: white;
+       padding: 10px;
+       position: fixed;
+       bottom: 15px;
+       right: 15px;
+       }
+    </style>
+</head>
+
+<a href="Acbout&Results.html">Da clcik y ve tus favoritos</a>   
+
+<h1>
+    Donde quiere vivir Wally
+</h1>
+
+<div>
+ <select id="listadoPaises" onchange="selectedCountry()">
+<option>elige un pais</option></select>
+<h2>Opciones de trabajo para Wally</h2>
+<select id="listadoTrabajos" onchange="selectedJob()">
+<option>elige un trabajo</option></select>
+<div id="trabajoElegido">
+</div>
+</div>
+        
+<body>
+    
+    
+
+    <script>
+let country;
+//havemos la conversion del api de teleport para elegir los paies
+fetch('https://api.teleport.org/api/countries/')
+.then(function data1pais(datos) {
+
+   return datos.json()
+    
+})
+
+.then(function pais(paises) {
+// hacemos este for para mostrar en un desplegado los ddiferentes paises que tenemos en la lista
+console.log(paises._links['country:items'][0].name);
+for (let i = 0; i < paises._links['country:items'].length; i++) {
+    document.getElementById('listadoPaises').innerHTML+=`<option>${paises._links['country:items'][i].name}</option>`
+}
+//
+country=paises
+})
+
+//declaramos la variable que tomara el pais elegido
+let pais;
+//declaramos la variable a que cogera el valor del url para poder hacer un fetch y parsearlos
+let valorPais;
+// declaramos otra varaiable donde cogre la url de salarios y trbajos 
+let salarios;
+
+// si hay algo anteriormente caragdo se mostrara
+function selectedCountry() {
+    
+//utilizamos el punto value para cooger el valor del pais, esto esta relacionado con el id y la funcion de onchange
+pais=document.getElementById("listadoPaises").value
+
+//window alert 
+//window.alert(`${pais}`) 
+//document.getElementById('paisElegido').innerHTML="";  
+for (let i = 0; i < country._links['country:items'].length; i++) {
+    //hacemos la comparativa de el pais elegido con los paises
+    if(pais===country._links['country:items'][i].name){
+    valorPais=country._links['country:items'][i].href
+    //document.getElementById('paisElegido').innerHTML+=`<option>${country._links['country:items'][i].href}</option>`
+    }
+
+}
+// del url que es el pais que sacamos del for cogemos el valor del pais
+fetch(`${valorPais}`)
+.then(function vaLorP(valorP) {
+    return valorP.json();
+    
+})
+//Cogemos el url de salarios y trabajo  del pais elegido y  y lo parseamos con un fetch
+.then(function vaLorC(valorc){
+ 
+salarios=valorc._links['country:salaries'].href
+console.log(salarios)
+console.log(salarios)
+fetch(salarios)
+.then(function vaLorS(valors){
+
+return valors.json();
+}
+
+)
+//cogemos el fetch de salarios y haremos otro desplegable de los de los trabajos
+.then(function salario(pago) {
+     console.log(pago.salaries[1]['job'])
+     for (let i = 0; i < pago.salaries.length; i++) {
+        console.log( pago.salaries[i]['job'])
+        document.getElementById('listadoTrabajos').innerHTML+=`<option>${pago.salaries[i]['job'].title}</option>`
+
+    //  document.getElementById('paisElegido').innerHTML+=`<div><h3>${pago.salaries[i]['job'].title}</h3>
+    //    <p>salario en dolares:${ Math.round(pago.salaries[i]['salary_percentiles'].percentile_25)}$</p>
+    //      <p>salario en dolares:${Math.round(pago.salaries[i]['salary_percentiles'].percentile_50)}$</p>
+    //      <p>salario en dolares:${Math.round(pago.salaries[i]['salary_percentiles'].percentile_75)}$</p>         <div>`
+        
+   }
+
+
+selectedJob()
+    
+})
+}
+)
+}
+//funcion para seleccionar los trabajos seleccionados 
+let pickedJob;
+function selectedJob() {
+    document.getElementById('trabajoElegido').innerHTML+=""; 
+console.log(document.getElementById("listadoTrabajos").value)
+pickedJob=document.getElementById("listadoTrabajos").value
+fetch(salarios)
+.then(function payment(pagos) {
+    return pagos.json();
+})
+.then(function payment2(payments) {
+    document.getElementById('trabajoElegido').innerHTML='';
+    for (let i = 0; i < payments.salaries.length; i++) {
+        console.log( payments.salaries[i]['job'])
+if ( pickedJob===payments.salaries[i]['job'].title) {
+    document.getElementById('trabajoElegido').innerHTML+=`<div><h3>${payments.salaries[i]['job'].title}</h3>
+     <p>El 75% tiene un salario Anual en dolares:${ Math.round(payments.salaries[i]['salary_percentiles'].percentile_25)}$</p>
+    <p>El 50% tiene un salario Anual en dolares:${Math.round(payments.salaries[i]['salary_percentiles'].percentile_50)}$</p>
+     <p>El 25% tiene un salario Anual en dolares:${Math.round(payments.salaries[i]['salary_percentiles'].percentile_75)}$</p>
+     <button onclick="guardarFavoritos('En <strong>${pais}</strong> un ${payments.salaries[i]['job'].title}','${Math.round(payments.salaries[i]['salary_percentiles'].percentile_50)}')"> Guarda el trabajo</button>
+              <div>`
+}
+}   
+})
+
+}
+//creaamos un rray para almacenar los trabajos favoritos del usuario
+let trabajoFavorito;
+trabajoFavorito=JSON.parse(localStorage.getItem('fav'))
+if (favorito===null) {
+trabajoFavorito=[];
+}
+function guardarFavoritos(Nombretrabajo,salarioMedio) {
+//guardamos los favoritos en la variable
+    trabajoFavorito.push(Nombretrabajo,salarioMedio)
+//convertimos los favoritos en formato Json
+let trabajoFavoritoEnJson=JSON.stringify(trabajoFavorito);
+// guardamos en lolcal la variable elegida 
+localStorage.setItem('fav',trabajoFavoritoEnJson)
+}
+
+
+
+    </script>
+</body>
+</html> -->

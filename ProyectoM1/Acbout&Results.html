@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
+    <title>About and results</title>
+</head>
+
+<body>
+
+    <a id="botonBusqueda" href="busqueda1.2.html">volver a buscar mas </a>
+
+    <header>
+<div class="menuHead">
+    <div class="logo">
+        <img src="UFO.svg" alt="">
+        <p>living</p>
+        </div>
+    <ul class="menu" >
+        <li><a href="busqueda1.2.html">Buscador de Mundos</a></li>
+        <li><a href="inicio.html">Inicio</a></li>
+    </ul>
+</div>
+        <h1>Resultados</h1>
+        <a href="#" onclick="analisis()" id="analisisBoton" >Analisis</a>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dicta provident suscipit pariatur
+            similique, eum fugit, accusantium quae aliquam tenetur harum? Doloremque excepturi exercitationem ut
+            perspiciatis mollitia. Dolor, libero dolorem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+            impedit dignissimos numquam nesciunt delectus ea praesentium perspiciatis, neque voluptates animi sit
+            possimus dolores quia exercitationem velit repudiandae. Odit magni doloremque sunt, cupiditate, voluptatibus
+            saepe vero odio voluptatem quod consectetur, nostrum natus laboriosam quam magnam illum modi? Sint, iste
+            tempore necessitatibus rerum quos maiores possimus. Quod autem similique sit iste laborum, cum debitis odio!
+            Temporibus quas, aperiam perspiciatis, neque eligendi maiores aspernatur sequi consequatur placeat
+            doloribus, consectetur voluptas necessitatibus non fuga nobis iste voluptatibus hic? Odit hic quae
+            consequuntur repudiandae, sequi pariatur alias esse tempore eius? Quia voluptates sed eius earum debitis
+            autem harum perferendis laboriosam, eligendi hic fuga iste sequi ducimus asperiores corporis accusamus ullam
+           .</p>
+        <div id="analisis">
+
+        </div>
+
+        <div></div>
+    </header>
+    <main>
+        <h1>Historial de destinos y profesiones</h1>
+
+        <div class="results">
+            <div id="guardados">
+            </div>
+
+            <div id="detalles">
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <div class="footer">
+            
+            <div class="footerDer">
+    
+    <div class="listos">
+    <h5>Mundos</h5>
+    <ul>
+     <li>Eventos</li>
+    <li>Noticias</li>
+    <li>Colaboradores</li>
+     </ul>
+    </div> 
+           
+    <div class="listos">
+    <h5>Información</h5>
+    <ul>
+    <li>Api</li>
+    <li>Tips</li>
+    <li>blog</li>
+    </ul>
+    </div> 
+    <div class="listos">
+    <h5>Atención a clientes</h5>
+    <ul>
+    <li>oficinas</li>
+    <li>agencia</li>
+    <li>viajes</li>
+    </ul>
+    </div> 
+    </div>
+    <div class="footerizq">
+       
+    <div class="logo">
+        <img src="UFO.svg" alt="">
+        <p> <strong> El Alien</strong></p>
+        </div>
+        
+        
+        <div class="foto">
+            <img src="facebook.svg" alt="">
+            <img src="insta.svg" alt="">
+            <img src="twitter.svg" alt="">
+            <img src="reddit.svg" alt="">
+            
+        </div>
+        
+    </div>
+    </div>
+    
+    </footer>
+
+    <script>
+        let guardados;
+        let trabajoFavorito;
+        let rentaFavorita;
+        let detalleFavoritos;
+        let calculosal = 0;
+        let calculorent;
+        let rent;
+        let city;
+        let detalles;
+        let ciudad;
+        let transporte;
+        let gimnasio;
+        let cerveza;
+        let menu;
+        let sumaDetalles
+        let citi;
+        let work;
+
+        trabajoFavorito = JSON.parse(localStorage.getItem('fav'));
+        rentaFavorita = JSON.parse(localStorage.getItem('favor'));
+        detalleFavoritos = JSON.parse(localStorage.getItem('favo'));
+        mostrarTrabajo()
+        motrarDetalles()
+
+        function mostrarTrabajo() {
+
+            for (let i = 0; i < trabajoFavorito.length; i++) {
+                // guardados= trabajoFavorito[i];
+
+                // if (i%2==0) {
+                //     citi=trabajoFavorito[i];
+                // //document.getElementById('guardados').innerHTML+=`<p>${trabajoFavorito[i]}</p>`
+                // }
+                //  else{
+                // calculosal=trabajoFavorito[i]/12;
+                // work=trabajoFavorito[i]
+                //     //document.getElementById('guardados').innerHTML+=`<p>el salario medio anual en dolares es <strong>${trabajoFavorito[i]}$ </strong> y el salario medio mensual:<strong> ${Math.round( parseInt(trabajoFavorito[i])/12)}$</strong></p>`
+                //     }
+                calculosal = (trabajoFavorito[i].salario / 12)
+
+                document.getElementById('guardados').innerHTML += `
+    <p>${trabajoFavorito[i].nombreTrabajo}</p>
+    <p>el salario medio anual en dolares es <strong>${trabajoFavorito[i].salario}$ </strong> y el salario medio mensual:<strong> ${trabajoFavorito[i].salario / 12}$</strong></p>`
+            }
+
+
+        }
+
+        function motrarDetalles() {
+
+            for (let i = 0; i < rentaFavorita.length; i++) {
+                if (i % 2 == 0) {
+                    document.getElementById('detalles').innerHTML += `<p>${rentaFavorita[i]}</p>`
+                }
+                else {
+
+
+                    calculorent = rentaFavorita[i];
+
+                    document.getElementById('detalles').innerHTML += `<p>el coste medio de la renta es <strong>${rentaFavorita[i]}$ </p>`
+
+                }
+
+
+
+            }
+
+
+            for (let i = 0; i < detalleFavoritos.length; i++) {
+                document.getElementById('detalles').innerHTML += `
+    <p>En ${detalleFavoritos[i].cities}</p>
+    <p>El coste del transporte es:${detalleFavoritos[i].transpor}$/mes</p>
+    <p>El coste medio de un Menu es:${detalleFavoritos[i].menues}$</p>
+    <p>EL Coste de un Fitness Club:${detalleFavoritos[i].gymi}$</p>
+    <p>El coste medio de una cerveza:${detalleFavoritos[i].beer}$</p>`
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+        function analisis() {
+
+
+            for (let i = 0; i < detalleFavoritos.length; i++) {
+                citi = detalleFavoritos[i].cities
+                transporte = detalleFavoritos[i].transpor
+                menu = detalleFavoritos[i].menues
+                gimnasio = detalleFavoritos[i].gymi
+                cerveza = detalleFavoritos[i].beer
+
+
+
+                //     if (i===0) {
+                // document.getElementById('detalles').innerHTML+=`</p>${detalleFavoritos[i]}$ </p>`
+                //     }
+                // if (i===(detalleFavoritos.length-4)) {
+                //     transporte=detalleFavoritos[i]
+
+                // }
+
+                // if (i=== (detalleFavoritos.length-3)) {
+                //     menu=detalleFavoritos[i]
+
+                // }
+
+                // if (i===(detalleFavoritos.length-2)) {
+                //     gimnasio=detalleFavoritos[i]
+
+                // }
+
+                // if (i===(detalleFavoritos.length-1)) {
+                //     cerveza=detalleFavoritos[i]
+
+
+
+                // }
+
+
+
+
+            }
+            sumaDetalles = parseInt(calculorent) + parseInt(transporte) + parseInt(gimnasio) + ((cerveza * 16) + (menu * 6))
+            console.log(sumaDetalles)
+            if (calculosal !== 0) {
+
+
+                document.getElementById("analisis").innerHTML = `
+    <div class="ciudad">
+        ${citi}
+            </div>
+    
+    <div class="analysis">
+        <div>
+<div>
+    <p><img src="housing.svg" alt=""> el coste de una de la renta=${calculorent}$/mes</p>
+</div>
+    <div>
+</p><img src="transport.svg" alt=""> el coste del transporte es=${transporte}$</p>
+</div>
+<div>
+</p> <img src="meal.svg" alt=""> el coste del menu es= ${menu}$ </p>
+</div>
+<div>
+</p> <img src="gym.svg" alt=""> el coste de un club de fitnes es=${gimnasio}$ </p>
+</div>
+<div>
+</p><img src="beer.svg" alt=""> el coste de una cerveza =${cerveza}$ </p>
+</div>
+</div>
+
+<div>
+    <p> +ingreso mensual: ${calculosal}</p>
+    <p> - pago del piso: ${calculorent}</p>
+    <p> - pago del transporte mensual: ${transporte}</p>
+    <p> - mantenerse activos: ${gimnasio}</p>
+    <p> - finde semana sociales: ${cerveza * 16 + menu * 6}</p>
+    <p> Ahorro total: ${parseInt(calculosal) - sumaDetalles}</p>
+   
+
+</div>
+
+
+    </div>`
+
+
+
+
+            }
+
+            else if (calculosal === 0) {
+
+
+                document.getElementById("analisis").innerHTML = `
+<div class="ciudad">
+                ${citi}
+    </div>
+<div>
+
+    
+<div>
+    <p><img src="housing.svg" alt=""> el coste de una de la renta=${calculorent}$/mes</p>
+<div>
+    <div>
+</p><img src="transport.svg" alt=""> el coste del transporte es=${transporte}$</p>
+</div>
+<div>
+</p> <img src="meal.svg" alt=""> el coste del menu es= ${menu}$ </p>
+</div>
+<div>
+</p> <img src="gym.svg" alt=""> el coste de un club de fitnes es=${gimnasio}$ </p>
+</div>
+<div>
+</p><img src="beer.svg" alt=""> el coste de una cerveza =${cerveza}$ </p>
+</div>
+<div>
+
+    </div>`
+            }
+
+        }
+
+        function quitar() {
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

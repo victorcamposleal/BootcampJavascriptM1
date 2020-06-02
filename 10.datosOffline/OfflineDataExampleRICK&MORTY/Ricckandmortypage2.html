@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+a{
+ border-radius: 5px;
+ border: style solid;
+ background-color: cornflowerblue;
+text-decoration: none;
+color: white;
+padding: 10px;
+position: fixed;
+bottom: 15px;
+right: 15px;
+}
+    </style>
+</head>
+<body>
+    <a href="rICKYMORTY.html">GO AND SEE YOUR FAVORITE CHOICES</a>
+<ul id="favoritos"></ul>
+<img src="" alt="">
+   
+   
+   
+   
+   <script>
+
+let favorito; 
+    favorito=JSON.parse(localStorage.getItem('favoritoss'))
+//si no hay nada en el listado de la variable memoria favorito se incializara de nuevo el array por ejemplo cuando visitamos por primera vez la pagina
+     if (favorito===null) {
+        favorito=[];
+        }         
+
+
+
+perosnajesGuardados()
+function perosnajesGuardados() {
+    document.getElementById("favoritos").innerHTML="";
+for (let i = 0; i < favorito.length; i++) {
+if (i%2===0) {
+    document.getElementById("favoritos").innerHTML+=`<li> ${favorito[i]}  </li>`   
+}
+if (i%2!==0) {
+ document.getElementById("favoritos").innerHTML+=`<li>  <img src="${favorito[i]}" alt=""/>  </li>`
+    
+}
+}
+}
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="" alt="">
+    <title>Document</title>
+</head>
+<body>
+
+    <p></p>
+    <button id=verPersona onclick="persona()" >busca una persona</button>
+    <div id="persona">
+
+<div></div>
+    </div>
+
+    <script>
+
+        function persona() {
+            
+fetch('https://randomuser.me/api/')
+
+.then(
+    function cogerDatos(answer) {
+        return (answer.json())
+        
+    }
+)
+.then (
+function pickData(datos) {
+    document.getElementById("persona").innerHTML=`<div><img src="${datos.results[0].picture.large}" alt="">
+     <p>${datos.results[0].name.title} ${datos.results[0].name.first} ${datos.results[0].name.last}</p>
+        <p>${datos.results[0].email}</p>
+        <p>${datos.results[0].location.street.number}  ${datos.results[0].location.street.name}</p>
+        <p>${datos.results[0].location.city} ,${datos.results[0].location.state},${datos.results[0].location.country}, ${datos.results[0].location.postcode}</p>
+    </div>`
+    
+}
+
+)
+//la dirección (street name, street number, city, state, country, postcode)
+        }
+
+
+
+    </script>
+</body>
+</html>
